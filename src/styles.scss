@@ -30,7 +30,9 @@ app-root {
 .p-accordion-header-text {
   line-height: 1.4 !important;
 }
-
+.layout-main{
+  margin-left:0;
+}
 button {
   height: 30px;
 
@@ -196,12 +198,12 @@ $gutter: 0.5rem; //for primeflex grid system
     .layout-sidebar {
       background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);
       box-shadow: unset;
+      top:0;
     }
 
     .layout-content {
       background-color: white;
-      border-top-left-radius: 48px;
-      border-top-right-radius: 48px;
+ 
     }
 
     .mr-medium-2 {
@@ -1403,7 +1405,32 @@ $gutter: 0.5rem; //for primeflex grid system
   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
   background-color: transparent;
 }
-
+.layout-topbar{
+  .p-dropdown-trigger{
+    background-color: white;
+    border:none!important;
+  }
+  .p-dropdown{
+    border:none;
+  }
+   .p-dropdown-label {
+    border:none!important;
+    background: white!important;
+    
+}
+ .p-calendar button {
+    background-color: white;
+    border-radius:8px;
+    border: none;
+    color: #1c1c1c;
+}
+  .p-inputgroup{
+    input{
+      background-color: white;
+border:none
+    }
+  }
+}
 .layout-menu-light .layout-sidebar {
   background-color: transparent;
 
@@ -1411,7 +1438,12 @@ $gutter: 0.5rem; //for primeflex grid system
     color: white !important;
   }
 }
-
+.right-menu{
+  list-style-type: none;
+  li{
+    margin: 10px;
+  }
+}
 body {
   overflow: hidden;
   background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);
@@ -1420,7 +1452,7 @@ body {
 
 .layout-menu-light .layout-content {
   background-color: white;
-  border-top-left-radius: 36px;
+  margin-top: 300px;
 }
 
 .layout-menu-light .layout-sidebar .layout-menu li a i {
