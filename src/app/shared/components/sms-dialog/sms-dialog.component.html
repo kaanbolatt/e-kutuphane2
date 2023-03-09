@@ -1,0 +1,19 @@
+<p-dialog header="Cep telefonu doğrulama" class="sms-dialog" [(visible)]="display" modal="modal" (onHide)="falser()" showEffect="fade" [style]="{width: '400px'}" [breakpoints]="{'960px': '75vw'}">
+    <div class="field mt-4">
+        <div class="p-inputgroup ">
+            <input pinputtext="" (keyup)="verifyPhoneKeyUp()" type="text" [(ngModel)]="smsValue" class="p-inputtext p-component p-element w-100" placeholder="Sms Doğrulama Kodu*" />
+        </div>
+        <p *ngIf="!reSendButton" class="mt-3">SMS Doğrulama Kodu için kalan süre: <span style="color:#dc3545 ;">
+                <app-timer [start]="true" [duration]="180" (timerFinished)="timeFinish()"></app-timer>
+            </span></p>
+        <p *ngIf="reSendButton" style="color: #dc3545;" class="mt-3">Size tanınan sms için ayrılan süre doldu <span style="color:#dc3545 ;">
+            </span></p>
+        <p *ngIf="isWrong" style="color: #dc3545;" class="mt-3">Doğrulama kodu hatalı! Tekrar deneyiniz <span style="color:#dc3545 ;">
+            </span></p>
+    </div>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="Vazgeç" (click)="falser()" class="p-button p-button-danger mr-2 mb-2"></button>
+        <button *ngIf="!reSendButton" pButton pRipple type="click" label="Doğrula" (click)="verifyPhone()" class="p-button p-button-ourgreen mr-2 mb-2 "></button>
+        <button *ngIf="reSendButton" pButton pRipple type="click" (click)="reSend()" label="Tekrar Sms Gönder" class="p-button p-button-ourgreen mr-2 mb-2 "></button>
+    </ng-template>
+</p-dialog>

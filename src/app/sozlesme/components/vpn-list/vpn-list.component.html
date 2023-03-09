@@ -1,0 +1,160 @@
+<div class="container p-5 ">
+    <div class="d-flex justify-content-between " style="padding: 1.25rem;">
+        <h2>Kullanıcı Listesi</h2>
+        <div class="">
+            <button pButton class="ourgreen  mr-2" label="+Kullanıcı Oluştur" (click)="display=true"></button>
+        </div>
+    </div>
+    <p-panel legend="Rol Ekleme" [toggleable]="true">
+        <ng-template pTemplate="icons">
+            <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu>
+        </ng-template>
+        <form [formGroup]="gh.getFilterForm()" (ngSubmit)="gh.setGridRefreshAsSearch();gridRefresh();">
+            <div class="formgroup-inline d-block">
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <div></div>
+                        <div class="row">
+                            <div class="col-lg-3  col-md-6 ">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup m-auto ">
+                                        <span class="p-float-label ">
+                                            <input pInputText textOnly type="text" formControlName="email" class="p-inputtext p-component p-element" />
+                                            <label for="name">E-posta</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup  m-auto">
+                                        <span class="p-float-label ">
+                                            <input pInputText textOnly type="text" formControlName="name" class="p-inputtext p-component p-element" />
+                                            <label for="name">Ad</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup m-auto">
+                                        <span class="p-float-label">
+                                            <input pInputText type="text" formControlName="surname" class="p-inputtext p-component p-element" />
+                                            <label for="mail">Soyad</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field mt-4 ">
+
+                                    <app-dropdown [controllerName]="'Common'" [secondCheck]="true" [parentForm]="gh.getFilterForm()" [id]="'cityCode'" [methodName]="'CityList'" [placeholder]="'Şehir'" (change)="cityChange($event)">
+                                    </app-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field mt-4">
+                                    <app-dropdown [controllerName]="'Common'" [parentForm]="gh.getFilterForm()" [id]="'districtCode'" [methodName]="'DistrictList'" field="label" [placeholder]="'İlçe'" (change)="districtChange($event)"
+                                        [searchParams]="cityId">
+                                    </app-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field mt-4">
+                                    <app-dropdown [controllerName]="'Common'" [parentForm]="gh.getFilterForm()" [id]="'institutionCode'" [methodName]="'InstitutionList'" [placeholder]="'Kurum'" [searchParams]="roleId">
+                                    </app-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field mt-4">
+                                    <app-dropdown [controllerName]="'Account'" [secondCheck]="false" [parentForm]="gh.getFilterForm()" [id]="'roleId'" [methodName]="'RoleList'" (change)="roleChange($event)" [placeholder]="'Rol'">
+                                    </app-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field mt-4">
+                                    <app-dropdown [filteredObjects]="active" [parentForm]="gh.getFilterForm()" [id]="'isActive'" [placeholder]="'Aktiflik Durumu'"></app-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup  m-auto">
+                                        <span class="p-float-label">
+                                            <input type="number" formControlName="identityNo" class="p-inputtext p-component p-element" />
+                                            <label for="mail">T.C. Kimlik No</label>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3  col-md-6">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup  m-auto">
+                                        <span class="p-float-label">
+                                            <p-calendar class="three-side-input" (onSelect)="calendarCreatedChange($event)" (onClearClick)="clearCreated()" selectionMode="range" [showIcon]="true" formControlName="createdDate"
+                                                [placeholder]="'Oluşturma Tarih Aralığı'"></p-calendar>
+                                            <label for="mail">Oluşturma Tarihi</label>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="field text-start mt-4">
+                                    <div class="p-inputgroup  m-auto">
+                                        <span class="p-float-label">
+                                            <p-calendar class="three-side-input" (onSelect)="calendarUpdateChange($event)" (onClearClick)="clearUpdate()" [showIcon]="true" formControlName="updatedDate" [placeholder]="'Güncelleme Tarih'"></p-calendar>
+                                            <label for="mail">Güncellenme Tarihi</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-lg-3 d-flex justify-content-center">
+                                <div class="row">
+                                    <div class="col-lg-6 m-auto"> <button pButton type="submit" style="min-width: 100px; margin: 10px" class="p-button-width" label="Filtrele"></button></div>
+                                    <div class="col-lg-6 m-auto"> <button pButton type="click" style="min-width: 100px; margin: 10px" class="p-button-outlined p-button-width" (click)="clearFilter()" label="Temizle"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </p-panel>
+
+    <div class="primary-table table-wrapper p-4 mt-2">
+        <app-grid class="primary-table" [paginator]="true" (gridRefresh)="gridRefresh()" [doubleClick]="true" [exceleAktar]="true" [rowCount]="true" [textCenter]="false">
+            <ng-template let-rowData="rowData" cellTemplate="cityName">
+                <div>
+                    {{rowData.cityName!=null ? rowData.cityName : " "}}
+                </div>
+            </ng-template>
+            <ng-template let-rowData="rowData" cellTemplate="districtName">
+                <div>
+                    {{rowData.districtName!=null ? rowData.districtName : " "}}
+                </div>
+            </ng-template>
+            <ng-template let-rowData="rowData" cellTemplate="institutionName">
+                <div>
+                    {{rowData.institutionName!=null ? rowData.institutionName : " "}}
+                </div>
+            </ng-template>
+            <ng-template let-rowData="rowData" cellTemplate="isActive">
+                <div class="d-flex align-items-center" style="color: #4AA785;" *ngIf="rowData.isActive">
+                    <img style="margin-right: 5px;" src="../../../../assets/img/green-dot.png" alt="">
+                    Aktif
+                </div>
+                <div style="color: #FF6966;" class="d-flex align-items-center" *ngIf="!rowData.isActive">
+                    <img style="margin-right: 5px;" src="../../../../assets/img/red-dot.png" alt="">
+                    Pasif
+                </div>
+            </ng-template>
+            <ng-template let-rowData="rowData" cellTemplate="islemler">
+                <p-splitButton label="İşlemler" [model]="this.items" (onDropdownClick)="rowSelect(rowData)" styleClass="p-button-sm mr-2 mb-2"></p-splitButton>
+            </ng-template>
+        </app-grid>
+    </div>
+</div>
+<p-confirmDialog class="vpn-confirm" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<app-vpn-history *ngIf="displayInfo" [display]="displayInfo"  (displayFalser)="displayInfoFalser()"></app-vpn-history>

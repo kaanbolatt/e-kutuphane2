@@ -1,0 +1,21 @@
+
+<div class="p-col-12">
+    <div class="p-toolbar-group-left">
+        <div class="mt10 ml20 fs16">{{raporBasligi}}</div>
+    </div>
+    <div class="p-toolbar-group-right" style="margin-bottom: 5px">
+        <button pButton type="button" label="Excel" (click)="downloadExcel()" *ngIf="displayExcel" icon="fa fa-file-excel-o" class="p-button-success" style="margin: 2px;"></button>
+        <button pButton type="button" label="Pdf" (click)="downloadPdf()" *ngIf="displayPdf" icon="fa fa-file-pdf-o" class="p-button-danger" style="margin: 2px;"></button>
+        <button pButton type="button" label="Yazdır" icon="fa fa-print" (click)="print()" *ngIf="displayYazdir" class="p-button-info" style="margin: 2px;"></button>
+        <button pButton type="button" label="Yeni Sekmede Aç" (click)="yeniSekmedeAc()" *ngIf="displayYeniSekme" icon="fa fa-external-link" class="p-button-secondary" style="margin: 2px;"></button>
+    </div>
+    <div *ngIf="displayCustomToolbar" style="background-color: #d1ddbe; padding-top: 5px; width: 100%; margin-bottom: 8px; height: 30px; border-radius: 3px;">
+        <ng-content select="[customHeader]"></ng-content>
+    </div>
+    <div class="p-grid p-justify-center">
+        <div id="content" style="font-family: 'Roboto', sans-serif; background-color: white; padding: 10px; overflow-x: auto; max-width: 800px; font-weight: normal;" #reportContent>
+            <ng-content>
+            </ng-content>
+        </div>
+    </div>
+</div>

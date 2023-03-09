@@ -1,0 +1,192 @@
+<p-dialog header="Yeni Personel"  (onHide)="displayFalse()"  [(visible)]="display">
+    <p-tabView>
+        <p-tabPanel header="Kişisel Bilgiler">
+            <div class="row mt-4 gy-4 gx-4">
+                <div class="col-md-6 d-flex   justify-content-md-end" style="justify-content: center;">
+                    <div class="field-radiobutton">
+                        <p-radioButton  ></p-radioButton>
+                        <label >Türk Uyruklu</label>
+                    </div>                </div>
+                <div class="col-md-6 d-flex justify-content-md-start" style="justify-content: center;">
+                    <div class="field-radiobutton">
+                        <p-radioButton  ></p-radioButton>
+                        <label >Yabancı Uyruklu</label>
+                    </div>                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="name">TC kimlik numarası</label>
+
+                        <div class="p-inputgroup m-auto ">
+                 
+                                <input pInputText textOnly type="text"  placeholder="TC kimlik numarası giriniz"
+                                    class="p-inputtext p-component p-element" />
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="name">Ad ve soyad</label>
+
+                        <div class="p-inputgroup m-auto ">
+                 
+                                <input pInputText textOnly type="text"  placeholder="Personelin adını giriniz"
+                                    class="p-inputtext p-component p-element" />
+                          
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Cinsiyet</label>
+
+                        <app-dropdown [placeholder]="'Cinsiyet Seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="mail">Doğum Tarihi</label>
+
+                        <div class="p-inputgroup  m-auto">
+                            
+                                <p-calendar class="three-side-input"   [showIcon]="true" 
+                                    [placeholder]="'Doğum tarihi'"></p-calendar>
+                          
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <label  style="width: 300px; text-align:start;margin-bottom: 10px;">Gizlişik Sözleşmesi</label>
+                    <app-file-upload [isMultiple]="false" style="max-width: 400px;" ></app-file-upload>
+                </div>
+             
+                    <div style="display: flex; justify-content: center;">
+                    <button pButton pRipple type="button" label="Kaydet ve devam et"  routerLink="/kullanici-listesi" class="p-mr-2 p-mb-2 black-button"></button>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="VPN Bilgileri">
+            <div class="row mt-2 gy-4 gx-4">
+              
+              
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="name">E-posta Adresi</label>
+
+                        <div class="p-inputgroup m-auto ">
+                 
+                                <input pInputText textOnly type="text"  placeholder="E-posta Adresi"
+                                    class="p-inputtext p-component p-element" />
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="name">Cep telefonu </label>
+
+                        <div class="p-inputgroup m-auto ">
+                 
+                                <input mask="0(000)000 00 00"   type="text"  placeholder="0(555)555 55 55"
+                                    class="p-inputtext p-component p-element" />
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Kurum türü </label>
+
+                        <app-dropdown [placeholder]="'Kurum türü seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+             
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Personel türü </label>
+
+                        <app-dropdown [placeholder]="'Personel türü seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+             
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="name">Ad ve soyad</label>
+
+                        <div class="p-inputgroup m-auto ">
+                 
+                                <input pInputText textOnly type="text"  placeholder="Personelin adını giriniz"
+                                    class="p-inputtext p-component p-element" />
+                          
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Kurum  </label>
+
+                        <app-dropdown [placeholder]="'Kurum  seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+              
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Şehir  </label>
+
+                        <app-dropdown [placeholder]="'Lütfen şehir seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+              
+                <div class="col-md-6">
+                    <div class="field mt-4">
+                        <label for="name">Firma  </label>
+
+                        <app-dropdown [placeholder]="'Lütfen firma seçiniz'">
+                        </app-dropdown>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="mail">Proje Başlangıç</label>
+
+                        <div class="p-inputgroup  m-auto">
+                                <p-calendar class="three-side-input"   [showIcon]="true" 
+                                    [placeholder]="'Tarih ve saat seçiniz'"></p-calendar>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field text-start mt-4">
+                        <label for="mail">Proje Bitiş</label>
+
+                        <div class="p-inputgroup  m-auto">
+                                <p-calendar [showTime]="true" class="three-side-input"   [showIcon]="true" 
+                                    [placeholder]="'Tarih ve saat seçiniz'"></p-calendar>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-6 text-center" >
+                    <label  style="width: 300px; text-align:start;margin-bottom: 10px;">VPN Formu</label>
+
+                    <app-file-upload [isMultiple]="false" style="max-width: 400px;" ></app-file-upload>
+                </div>
+             
+                    <div style="display: flex; justify-content: center;">
+                    <button pButton pRipple type="button" label="Kaydet ve devam et"  routerLink="/kullanici-listesi" class="p-mr-2 p-mb-2 black-button"></button>
+                </div>
+            </div>
+        </p-tabPanel>
+
+    </p-tabView>
+
+</p-dialog>

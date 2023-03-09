@@ -1,0 +1,10 @@
+
+
+<form [formGroup]="_parentForm">
+  <div *ngIf="!multiple">
+    <p-dropdown [formControlName]="id" [options]="ilceler" (onChange)="onIlceChange($event)"></p-dropdown>
+  </div>
+  <div *ngIf="multiple">
+    <p-multiSelect [formControlName]="id" [options]="ilceler" selectedItemsLabel="{0} ilçe seçildi" class="pull-left full-width" [placeholder]="placeholder"></p-multiSelect>
+  </div>
+</form>

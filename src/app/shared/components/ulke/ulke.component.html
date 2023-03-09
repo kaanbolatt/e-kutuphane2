@@ -1,0 +1,3 @@
+<form [formGroup]="parentForm">
+  <p-dropdown [options]="ulkeTanimlariFiltre" [formControlName]="id" (onChange)="onChange($event)" [disabled]="disabled"></p-dropdown>
+</form>

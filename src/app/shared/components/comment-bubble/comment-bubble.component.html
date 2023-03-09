@@ -1,0 +1,51 @@
+<div class="col-xl-1 d-flex  justify-content-sm-start justify-content-xl-end ">
+    <div class="ball"> {{nameCapital |uppercase}}{{surnameCapital|uppercase}}</div>
+</div>
+<div class="col-xl-11 ">
+    <div class="header">
+
+        <p> <strong> {{item.createdUserFullName}} ({{(item.roleName)}}) </strong> | &nbsp; {{item.createdDate|dateHourFormatPipe}}</p>
+    </div>
+    <div style="background-color:#F7F7F7 ; border-radius: 0px 12px 12px 12px;">
+
+        <div class="p-5">
+            
+            <span style="word-break:break-all;">{{item.comment}}</span>
+
+
+            <div *ngIf="item.reasonOfDenial" class="d-flex"> 
+                <span style="word-break:break-all;" style="color: red;margin-right: 10px;font-weight: bold;text-decoration: underline;">Kapama Sebebi:</span>
+            <span >{{item.reasonOfDenial}}</span>
+        </div>
+
+
+
+            <div *ngIf="file.length>0" class="mt-5 ">
+
+                <h6>Ekler:</h6>
+                <div class="d-flex ">
+                    <div (click)="takeAttachment(item.fileData,'DENEME',item.fileFormat)" *ngFor="let item of file" style="cursor:pointer;width: 40px;height: 40px;margin-right: 10px ;background-color: white; display: flex; align-items: center;justify-content: center;border:1px solid #d3d5d6;border-radius: 8px;">
+
+
+                        <img *ngIf="item.fileFormat=='image/jpeg'||item.fileFormat=='image/png'||item.fileFormat=='image/jpg'" style="width: 80%;height: 80%;" src="data:{{item.fileFormat}};base64,{{item.fileData}}" alt="">
+
+                       <i   *ngIf="!(item.fileFormat=='image/jpeg'||item.fileFormat=='image/png'||item.fileFormat=='image/jpg'||item.fileFormat=='application/pdf')"class="pi pi-file"></i>
+                       <i   *ngIf="(item.fileFormat=='application/pdf')"class="pi pi-file-pdf"></i>
+                       
+
+                    </div>
+                  
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

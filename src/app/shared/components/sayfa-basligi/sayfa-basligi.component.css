@@ -1,0 +1,5 @@
+deep::after body .ui-breadcrumb ul li .ui-menuitem-link {
+  font-weight: bold;
+  font-size: 15px;
+  cursor: default;
+}

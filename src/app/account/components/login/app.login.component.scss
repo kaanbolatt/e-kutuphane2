@@ -1,0 +1,63 @@
+.card-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  .login {
+    padding: 100px 200px;
+    margin: auto;
+    background-color: unset;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(158.72deg, rgba(255, 255, 255, 0.4) 3.01%, rgba(255, 255, 255, 0) 103.3%);
+border-radius: 40px;
+button{
+color: black;
+height: 56px;
+margin: auto;
+font-weight: 500;
+font-size: 18px;
+background: #FFFFFF;
+border-radius: 8px;
+}
+
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .login {
+    margin: 20px!important;
+      padding: 100px 50px!important;
+      margin: auto;
+      background-color: unset;
+    }
+
+    .login input,
+    button {
+      max-width: 250px;
+    }
+
+  }
+
+  .log-card {
+    display: flex;
+    border: 1px solid #ced4da;
+    border-radius: 16px;
+    max-width: 1000px;
+    height: 600px;
+  }
+
+  @media (max-width:991px) {
+
+    .log-card {
+
+      border: none !important;
+      border-radius: 0;
+    }
+  }  
+}
+
+
+

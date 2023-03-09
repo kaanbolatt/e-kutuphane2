@@ -1,0 +1,8 @@
+<form [formGroup]="_parentForm">
+  <div *ngIf="!multiple">
+    <p-dropdown [formControlName]="id"  [disabled]="readonly"  [options]="ilTanimlariFiltre" (onChange)="onIlChange($event)"></p-dropdown>
+  </div>
+  <div *ngIf="multiple">
+    <p-multiSelect [formControlName]="id" [disabled]="readonly"  [options]="ilTanimlariFiltre" selectedItemsLabel="{0} il seçildi" class="pull-left full-width" [defaultLabel]="defaultLabel" (onChange)="onIlChange($event)"></p-multiSelect>
+  </div>
+</form>

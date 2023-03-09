@@ -1,0 +1,5 @@
+<form [formGroup]="_parentForm">
+    <p-dropdown  class="three-side-input user-list-center d-flex" formControlName="{{id}}"  (click)="search()"
+       optionLabel="label" optionValue="{{optionValue}}" [disabled]="isDisabled" [options]="filteredObjects" [placeholder]="placeholder"  (onChange)="onSelect($event)"   >
+    </p-dropdown>
+</form>

@@ -1,0 +1,5 @@
+<form [formGroup]="_parentForm">
+    <p-autoComplete  class="three-side-input user-list-center" [multiple]="multiple" formControlName="{{id}}" [suggestions]="filteredObjects" (completeMethod)="search($event)"
+        [field]="field" (onSelect)="onSelect($event)" [disabled]="isDisabled" [placeholder]="placeholder" [dropdown]="dropDown" >
+    </p-autoComplete>
+</form>

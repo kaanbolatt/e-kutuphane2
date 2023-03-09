@@ -1,0 +1,8 @@
+<form [formGroup]="parentForm">
+    <div *ngIf="!multiple">
+        <p-dropdown [formControlName]="id" [options]="kurumTuruTanimlariFiltre" (onChange)="onKurumTuruChange()"></p-dropdown>
+    </div>
+    <div *ngIf="multiple">
+        <p-multiSelect [formControlName]="id" [options]="kurumTuruTanimlariFiltre" selectedItemsLabel="{0} kurum türü seçildi" [defaultLabel]="defaultLabel"></p-multiSelect>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+.widget-contacts ul li .contact-info .name {
+    display: block;
+    margin-top: 4px;
+    font-size: 35px;
+  }
+
+  .widget-contacts ul li .contact-info .location {
+    margin-top: 4px;
+    display: block;
+    font-size: 25px;
+    color: var(--text-color-secondary);
+  }

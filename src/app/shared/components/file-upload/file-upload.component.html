@@ -1,0 +1,24 @@
+<p-fileUpload [ngClass]="{'back-file': uploadedfiles.length==0, 'forward-file' : uploadedfiles.length!=0 }" #fileUpload [multiple]="isMultiple" [accept]=accept previewWidth="0" (onSelect)="onSelect($event)" (onRemove)="onRemove($event)" [files]="files"
+        [disabled]="disabled" id="fileupload_{{ id }}" [chooseLabel]="fileName">
+      
+
+
+
+        <ng-template let-file pTemplate="file">
+                <div *ngIf="fileAdded(file.name)"></div>
+                <!-- <div class="files-to-upload" *ngIf="file.type=='image/png'||file.type=='image/jpg'||file.type=='image/jpeg'||file.type=='image/webp'">
+                        <img style="width: 36px; height: 36px;border-radius: 8px;" [src]="file.objectURL.changingThisBreaksApplicationSecurity|safeHtml:'resourceUrl'" alt="">
+                        <div class="remove-file"(click)="dosyaSil(file)" ><i class="pi pi-trash"></i></div>
+                </div>
+                <div class="files-to-upload" *ngIf="file.type=='application/pdf'">
+                        <i class="pi pi-file-pdf"></i>
+                        <div class="remove-file" (click)="dosyaSil(file)"><i class="pi pi-trash"></i></div>
+                </div>
+                <div  class="files-to-upload" *ngIf="file.type=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                        <i class="pi pi-file"></i>
+                        <div class="remove-file" (click)="dosyaSil(file)"><i class="pi pi-trash"></i></div>
+                </div>
+                <div style="display:flex;align-items:center">{{file.name}}</div> -->
+        </ng-template>
+
+</p-fileUpload>

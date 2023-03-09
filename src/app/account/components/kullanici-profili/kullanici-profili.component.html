@@ -1,0 +1,55 @@
+<div class="p-grid p-fluid">
+  <div class="p-col-12">
+    <div class="card">
+      <div class="card widget-contacts">
+        <ul>
+          <li class="clearfix ">
+            <img src="{{avatarPath}}" width="200">
+            <!-- <img src="assets/layout/images/avatar.png" width="45"> -->
+            <div class="contact-info">
+              <span class="name">{{this.currentUser.name+' '+this.currentUser.surname}}</span>
+              <span class="location">laborant@evital.com.tr</span>
+              <!-- <span class="location">{{this.currentUser.email}}</span> -->
+            </div>
+            <div class="contact-actions">
+              <button pButton pRipple type="button" label="Düzenle" class="p-mr-2 p-mb-2"></button>
+              <!-- <span class="connection-status online">online</span>
+                  <i class="pi pi-fw pi-comment"></i>
+                  <i class="pi pi-fw pi-reply"></i> -->
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="p-grid p-fluid">
+  <div class="p-col-12 p-lg-6">
+    <div class="card">
+      <h5 class="centerText">Linear Chart</h5>
+      <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+    </div>
+
+    <div class="card">
+      <h5 class="centerText">Pie Chart</h5>
+      <div class="p-d-flex p-justify-center">
+        <p-chart type="pie" [data]="pieData" [options]="pieOptions" [style]="{'width': '50%'}"></p-chart>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12 p-lg-6">
+    <div class="card">
+      <h5 class="centerText">Bar Chart</h5>
+      <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
+    </div>
+
+    <div class="card">
+      <h5 class="centerText">Doughnut Chart</h5>
+      <div class="p-d-flex p-justify-center">
+        <p-chart type="doughnut" [data]="pieData" [options]="pieOptions" [style]="{'width': '50%'}"></p-chart>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="card-wrapper layout-menu-light  " style="
+background: linear-gradient(240.42deg, #4A6FA4 0%, #192F50 101.4%);" [@fadeInOut]="isShown ? 'open':'close'" (@fadeInOut.done)="routeparola($event)">
+         <img class="position-absolute"  style="bottom: 0;left:-40px;"  src="assets/img/Ellipse.png" alt="">
+
+    <div class="card p-fluid login " *ngIf="isShown"  @fadeInOutTransform>
+        <img class="mb-3 m-auto" width="100px"  src="assets/img/saglik-bakanligi-logo.png" alt="">
+        <h5 style="margin-bottom: 40px;color: white; font-size: 32px;">Sözleşme Yönetimi</h5>
+        <h6 style="margin-bottom: 40px;color: white; font-size: 24px;font-weight: 300;">Sisteme Giriş</h6>
+        <button pButton pRipple type="button" label="OGN ile giriş" class="p-mr-2 p-mb-2" routerLink="/hesap/aydinlatma" ></button>
+
+    
+    </div>
+</div>
+
+<p-confirmDialog class="confirm"  [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined">
+
+</p-confirmDialog>
+
+
+
+-

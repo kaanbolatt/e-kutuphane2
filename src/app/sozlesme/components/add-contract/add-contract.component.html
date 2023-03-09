@@ -1,0 +1,53 @@
+<p-dialog header="Sözleşme Ekle " class="personal-info" (onHide)="displayFalse()" [(visible)]="display">
+
+    <div class="row mt-4 gy-4 gx-4">
+      
+            <div class="col-lg-3 col-md-6">
+                <div class="row gx-0">
+                    <div class="col-lg-5"><strong>Kullanıcı Adı:</strong></div>
+                    <div class="col-lg-4">John Doe</div>
+                </div>
+            </div>
+     
+            
+           
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="row gx-0">
+                    <div class="col-lg-5"><strong>T.C. Kimlik No:</strong></div>
+                    <div class="col-lg-4">12345678901</div>
+                </div>
+            </div>
+        
+            <div class="col-lg-3 col-md-6">
+                <div class="row gx-0">
+                    <div class="col-lg-5"><strong>Cinsiyet:</strong></div>
+                    <div class="col-lg-4">Erkek</div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="row gx-0">
+                    <div class="col-lg-5"><strong>Doğum Tarihi:</strong></div>
+                    <div class="col-lg-4">24.12.1995</div>
+                </div>
+            </div>
+        
+        <div class="mt-6 text-center ">
+            <label  style="width: 300px; text-align:start;margin-bottom: 10px;">Dosya Seçiniz </label>
+            <app-file-upload [isMultiple]="false" style="max-width: 400px;" ></app-file-upload>
+        </div>
+
+        <div style="display: flex; justify-content: center;margin-top: 50px;" class="col-12">
+            <button pButton pRipple type="button" label="Personel bilgilerini düzenle" routerLink="/kullanici-listesi" class="p-mr-2 p-mb-2 black-button"></button>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</p-dialog>

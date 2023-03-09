@@ -1,0 +1,122 @@
+
+
+<p-dialog header="Sözleşme Ekle " class="personal-info" (onHide)="displayFalse()" [(visible)]="display">
+
+   
+<div class="row mt-4 gy-4 gx-4">
+      
+    <div class="col-lg-3 col-md-6">
+        <div class="row gx-0">
+            <div class="col-lg-5"><strong>Kullanıcı Adı:</strong></div>
+            <div class="col-lg-4">John Doe</div>
+        </div>
+    </div>   
+    <div class="col-lg-3 col-md-6">
+        <div class="row gx-0">
+            <div class="col-lg-5"><strong>T.C. Kimlik No:</strong></div>
+            <div class="col-lg-4">12345678901</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="row gx-0">
+            <div class="col-lg-5"><strong>Cinsiyet:</strong></div>
+            <div class="col-lg-4">Erkek</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="row gx-0">
+            <div class="col-lg-5"><strong>Doğum Tarihi:</strong></div>
+            <div class="col-lg-4">24.12.1995</div>
+        </div>
+    </div>
+
+    
+    
+    
+
+    <div class="row mt-4 gy-4 gx-4">
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Ad ve soyad</label>
+
+                <div class="p-inputgroup m-auto ">
+         
+                        <input pInputText textOnly type="text"  placeholder="Personelin adını giriniz"
+                            class="p-inputtext p-component p-element" />
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Ünvan</label>
+
+                <div class="p-inputgroup m-auto ">
+         
+                        <input pInputText textOnly type="text"  placeholder="Lütfen ünvan giriniz"
+                            class="p-inputtext p-component p-element" />
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Firma</label>
+
+                <div class="p-inputgroup m-auto ">
+         
+                        <input pInputText textOnly type="text"  placeholder="Lütfen firma giriniz"
+                            class="p-inputtext p-component p-element" />
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Vergi Numarası</label>
+
+                <div class="p-inputgroup m-auto ">
+         
+                        <input pInputText  type="number"  placeholder="Lütfen vergi no giriniz"
+                            class="p-inputtext p-component p-element" />
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Cep Telefonu</label>
+
+                <div class="p-inputgroup m-auto ">
+         
+                        <input pInputText  type="text" mask="0(000)000-00-00" placeholder="0(555)555-55-55"
+                            class="p-inputtext p-component p-element" />
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="field text-start mt-4">
+                <label for="name">Dosya Yükle</label>
+
+                    <app-file-upload [isMultiple]="false" style="max-width: 400px;" ></app-file-upload>
+                
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center;margin-top: 50px;"class="col-12">
+            <button pButton pRipple type="button" label="Kaydet ve devam et"  routerLink="/kullanici-listesi" class="p-mr-2 p-mb-2 black-button"></button>
+        </div>
+
+     
+         
+    </div>
+ 
+
+
+
+
+
+</div>
+
+</p-dialog>

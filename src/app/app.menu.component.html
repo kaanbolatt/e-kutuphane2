@@ -1,0 +1,18 @@
+<div class="layout-sidebar" style="    z-index: 2;
+" [ngClass]="{'layout-sidebar-active': appMain.sidebarActive}" (click)="appMain.onSidebarClick($event) "  
+>
+    <div class="sidebar-logo">
+        <a href="#" (click)="appMain.sidebarActive=!appMain.sidebarActive" style="border:1px solid rgb(58, 58, 58);position: absolute;top:97px;left:228px; display: block;background:linear-gradient(240.42deg, #4A6FA4 0%, #192F50 101.4%); color: white;" class="sidebar-pin" title="Toggle Menu" (click)="appMain.onToggleMenuClick($event)">
+            <i    style="color: white;font-size: 13px;" class="pi pi-angle-left" *ngIf="appMain.staticMenuActive"></i>
+            <i   style="color: white;font-size: 13px;" class="pi pi-angle-right" *ngIf="!appMain.staticMenuActive"></i>
+        </a>
+        
+       
+    </div>
+
+    <div class="layout-menu-container mt-5" (click)="onMenuClick()">
+        <ul class="layout-menu">
+            <li app-menuitem (click)="appMain.sidebarActive=true;appMain.staticMenuActive=true"  *ngFor="let item of model; let i = index;" [item]="item" [index]="i" [root]="true"></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<p-table  #dt [value]="gh.getDataTableInfo(datatableIndex).gridData" [multiSortMeta]="multiSortMeta" [sortMode]="sortMode" autoLayout="true" (allSelectedItems)="selectedItems" [(selection)]="selectedItems" (onLazyLoad)="callGridRefresh(dt)"
+    [dataKey]="dataKey" [resizableColumns]="resizableColumns" [reorderableColumns]="reorderableColumns" [paginator]="kayitVarMi(datatableIndex) && paginator" paginatorPosition="bottom" [lazy]="lazy" [responsive]="false"
+    [rows]="paginator==true?rowCountPerPage:rowCount" [columns]="gh.getDataTableInfo(datatableIndex).selectedColumns" [totalRecords]="gh.getDataTableInfo(datatableIndex).totalRecords" [scrollable]="scrollable " [scrollHeight]="scrollHeight" 
+    [rowsPerPageOptions]="gh.globals.pageSizeOptions" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [ngClass]="{'display-none': !gh.getDataTableInfo(this.datatableIndex).displayGrid }"
+    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm">
+    <ng-template pTemplate="caption" *ngIf="columnSelection || exceleAktar">
+        <div class="ui-helper-clearfix" *ngIf="kayitVarMi(datatableIndex)" style="height: 28px;">
+            <p-multiSelect optionLabel="header" selectedItemsLabel="{0} kolon seçildi" class="pull-left" [style]="{minWidth: '200px'}" defaultLabel="Kolon Seçiniz" [options]="gh.getDataTableInfo(datatableIndex).cols"
+                [(ngModel)]="gh.getDataTableInfo(datatableIndex).selectedColumns" (onChange)="gridColumnsReorder(gh.getDataTableInfo(datatableIndex))" *ngIf="columnSelection">
+            </p-multiSelect>
+        </div>
+
+    </ng-template>
+    <ng-template pTemplate="caption" >
+        <div class="table-header " >
+         <h4> {{headerText}} </h4>
+         <button type="button"  pButton icon="fa fa-file-excel-o" label="Excel'e Aktar" (click)="callGridRefresh()" class="p-button-success mb-2" style="float:right; background: #28a745;border: 1px solid #28a745;" *ngIf="exceleAktar"></button>
+
+        </div>
+    </ng-template>
+    <ng-template *ngIf="resizableColumns" pTemplate="colgroup" let-columns>
+        <colgroup>
+            <col *ngIf="rowExpansion" style="width:3vw">
+            <ng-container *ngFor="let col of gh.getDataTableInfo(datatableIndex).selectedColumns">
+                <col *ngIf="col.type===columnTypeEnum.largeRow" style="width:20vw">
+                <col *ngIf="col.type===columnTypeEnum.mediumRow" style="width:6vw">
+                <col *ngIf="col.type===columnTypeEnum.smallRow" style="width:4vw">
+                <col *ngIf="col.type===columnTypeEnum.checkbox" style="width:3vw">
+                <col *ngIf="col.type!=columnTypeEnum.largeRow && col.type!=columnTypeEnum.mediumRow && col.type!=columnTypeEnum.smallRow && col.type!=columnTypeEnum.checkbox" style="width:5vw">
+            </ng-container>
+        </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <!-- row-expansion -->
+            <th style="width: 3em" scope="col" *ngIf="rowExpansion" class="tableRowPtable"></th>
+            <ng-container *ngFor="let col of gh.getDataTableInfo(datatableIndex).selectedColumns">
+                <!-- basic-column -->
+                <th *ngIf="col.type!==columnTypeEnum.checkbox && col.type!==columnTypeEnum.template" style="white-space: pre-line;" [pSortableColumn]="reorderableColumns? col.field: null" pResizableColumn class="tableRowPtable">
+                    {{col.header}}
+                    <p-sortIcon *ngIf="reorderableColumns" [field]="col.field"></p-sortIcon>
+                </th>
+                <!-- template-column -->
+                <th *ngIf="col.type===columnTypeEnum.template &&(col.sortable==false||col.sortable==null)" style="white-space: pre-line;" pResizableColumn  class="tableRowPtable">
+                    {{col.header}}
+                </th>
+
+                <th *ngIf="col.type===columnTypeEnum.template && col.sortable==true " [pSortableColumn]="reorderableColumns? col.field: null" style="white-space: pre-line;" pResizableColumn  class="tableRowPtable">
+                    {{col.header}}
+                <p-sortIcon *ngIf="col.sortable==true"></p-sortIcon>
+                </th>
+
+       
+
+                <!-- checkbox-column -->
+                <th *ngIf="col.type===columnTypeEnum.checkbox" style="white-space: pre-line;" pResizableColumn pReorderableColumn (click)="allRowClick(selectedItems)" class="tableRowPtable">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox> {{col.header}}
+                </th>
+            </ng-container>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded">
+     
+        <tr [ngStyle]="rowPrepared(rowData)" (dblclick)="dbClkTr(rowData)"  >
+            <td *ngIf="rowExpansion" class="tableRowPtable">
+                <span class="p-column-title">{{col.hedaer}}</span>
+                <a href="#" [pRowToggler]="rowData" *ngIf="rowExpansion && rowData['expansion']">
+                    <i aria-hidden="true" [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+            </td>
+            <ng-container *ngFor="let col of gh.getDataTableInfo(datatableIndex).selectedColumns">
+                <td *ngIf="col.type===columnTypeEnum.number" style="white-space: pre-line;" [ngClass]="textCenter == true ? 'text-center' : 'text-start'" pResizableColumn class="tableRowPtable" >
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    {{rowData[col.field]}}
+                </td>
+                <td *ngIf="col.type!==columnTypeEnum.number && col.type!==columnTypeEnum.template && col.type!==columnTypeEnum.checkbox && col.type!==columnTypeEnum.boolean" class="tableRowPtable" style="white-space: pre-line;" [ngClass]="textCenter == true ? 'text-center' : 'text-start'" pResizableColumn>
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    <span [ngClass]="getColoring(col, rowData,col.field)">
+                        {{col.type==columnTypeEnum.date?(rowData[col.field]|date:'dd.MM.yyyy'):(col.type==columnTypeEnum.dateTime?(rowData[col.field]|date:'dd.MM.yyyy HH:mm:ss'):rowData[col.field])}}</span>
+                </td>
+                <td *ngIf="col.type===columnTypeEnum.template && whiteSpace" style="white-space: nowrap;"   [ngClass]="textCenter == true ? 'text-center' : 'text-start'"  pResizableColumn class="tableRowPtable">
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    <ng-content *ngTemplateOutlet="cellTemplatesMap[col.field]; context : {rowData : rowData}">
+                    </ng-content>
+                </td>
+                <td *ngIf="col.type===columnTypeEnum.template && !whiteSpace" style="white-space: pre-line;"[ngClass]="textCenter == true ? 'text-center' : 'text-start'" pResizableColumn class="tableRowPtable">
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    <ng-content *ngTemplateOutlet="cellTemplatesMap[col.field]; context : {rowData : rowData}">
+                    </ng-content>
+                </td>
+                <td *ngIf="col.type===columnTypeEnum.checkbox" style="white-space: pre-line;"  [ngClass]="textCenter == true ? 'text-center' : 'text-start'" pResizableColumn class="tableRowPtable">
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    <p-tableCheckbox [value]="rowData" [hidden]="rowData.secilebilirMi === false" pTooltip="{{rowData.secilememeNedeni}}"></p-tableCheckbox>
+                </td>
+                <td *ngIf="col.type===columnTypeEnum.boolean" style="white-space: pre-line;" [ngClass]="textCenter == true ? 'text-center' : 'text-start'" pResizableColumn class="tableRowPtable">
+                    <span class="p-column-title">{{col.header}}</span>
+
+                    {{rowData[col.field] === true ? 'Evet' : 'Hayır'}}
+                    
+                </td>
+            </ng-container>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" *ngIf="rowExpansion">
+        <tr *ngIf="rowExpansion && rowData['expansion']">
+            <td class="tableRowPtable">
+            </td>
+            <td [attr.colspan]="columns.length" class="tableRowPtable">
+                <ng-content *ngTemplateOutlet="templateChild; context : {rowData : rowData}">
+                </ng-content>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary" *ngIf="totalRecordSummary">
+        <div *ngIf="kayitVarMi(datatableIndex)"> Toplam {{gh.getDataTableInfo(datatableIndex).totalRecords}} kayıt
+            bulunmaktadır.
+        </div>
+    </ng-template>
+</p-table>
