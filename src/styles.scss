@@ -180,7 +180,13 @@ $gutter: 0.5rem; //for primeflex grid system
     .mt-small-2 {
       margin-top: 1rem;
     }
-
+    .layout-topbar-wrapper{
+      padding: 10px!important;
+    }
+    .searchbar {
+      border-radius: 12px!important;
+      padding: 20px;
+    }
     .process-card {
       display: block !important;
     }
@@ -189,12 +195,26 @@ $gutter: 0.5rem; //for primeflex grid system
       margin-bottom: 60px !important;
     }
   }
+  .layout-topbar {
+     position: unset; 
+     top: unset; 
+    z-index: 998;
+  
 
+}
   @media (max-width: $md) {
+   
     .mt-medium-2 {
       margin-top: 1rem;
     }
+    .searchbar {
+      border-radius: 12px!important;
+    }
 
+    .search{
+      margin-bottom:25px;
+      max-width: 400px;
+    }
     .layout-sidebar {
       background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);
       box-shadow: unset;
@@ -1416,6 +1436,7 @@ $gutter: 0.5rem; //for primeflex grid system
    .p-dropdown-label {
     border:none!important;
     background: white!important;
+    font-size: 16px;
     
 }
  .p-calendar button {
@@ -1423,9 +1444,15 @@ $gutter: 0.5rem; //for primeflex grid system
     border-radius:8px;
     border: none;
     color: #1c1c1c;
+    .p-float-label{
+      font-size: 16px;
+
+    }
+
 }
   .p-inputgroup{
     input{
+      font-size: 16px;
       background-color: white;
 border:none
     }
@@ -1452,7 +1479,6 @@ body {
 
 .layout-menu-light .layout-content {
   background-color: white;
-  margin-top: 300px;
 }
 
 .layout-menu-light .layout-sidebar .layout-menu li a i {

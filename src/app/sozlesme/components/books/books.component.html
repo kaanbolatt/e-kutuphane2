@@ -1,0 +1,18 @@
+<div class="history mt-4 mb-5 p-5">
+    <div class="mb-5 position-relative">
+      <img src="assets/img/left-arrow.png" class=" arrow" style="top:150px;left: 0;" (click)="scrollLeft()"alt="">
+      <img src="assets/img/right-arrow.png" class=" arrow" style=" top:150px;right:0;" (click)="scrollRight()" alt="">
+  
+      <div class="row  gy-5 flex-xl-nowrap outer_container"  style="overflow: auto;  flex-wrap: nowrap;">
+  
+  
+  
+        <div class=" " *ngFor="let item of model;let i = index" style="margin-bottom: 10px;height: 316px;width:240px;border-radius: 16px;  ">
+            <div class="image" style="height: 100%;width:100%;border-radius: 16px;" [ngStyle]="{'background': ' url(' + imageUrl  + ') no-repeat 0 0'}"></div>
+        </div>
+  
+      </div>
+    </div>
+    <hr>
+
+  </div>

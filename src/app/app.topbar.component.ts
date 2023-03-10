@@ -7,9 +7,9 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
 	selector: 'app-topbar',
 	template: `
 
-<div class="container">
-    <div class="layout-topbar" style="width: 100%;left: 0px;    height: 375px;z-index:1">
-        <div class="layout-topbar-wrapper" style="height:100%;flex-direction:column;padding:40px 10%;">
+
+    <div class="layout-topbar" style="width: 100%;padding:20px;min-height:375px;z-index:1">
+        <div class="layout-topbar-wrapper" style="height:100%;flex-direction:column;">
             <div style="display:flex;padding:5px 30px;">
                 <div class="layout-topbar-left">
                     <div class="layout-topbar-logo-wrapper d-lg-none">
@@ -83,7 +83,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     </ul>
                 </div>
             </div>
-            <div class="searchbar mt-5" style="width:100%;height:90px;border-radius:100px;background-color:white;">
+            <div class="searchbar mt-5" style="width:100%;border-radius:100px;background-color:white;">
 
 
                 <div class="row">
@@ -123,7 +123,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     </div>
 					<div class="col-lg-2 d-flex justify-content-center align-items-center">
 						
-						<button disabled style="width:100%;height:56px;border-radius: 100px;margin-right:15px;border:none;">Ara</button>
+						<button  class="search" style="width:100%;height:56px;border-radius: 100px;margin-right:15px;border:none;">Ara</button>
 					</div>
 
 
@@ -132,7 +132,6 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
             </div>
         </div>
     </div>
-</div>
     `
 })
 export class AppTopBarComponent implements OnInit {
