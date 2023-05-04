@@ -12,7 +12,75 @@
 
     <div class="layout-main" id="main-lay">
         <app-topbar  ></app-topbar>
+        <div class="fixed-panel" id="sticky-panel" style="width:100vw;background:linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);position: sticky;top: 0;z-index: 10000;transform: translateY(-1000px);padding: 20px;">
+            <div style="display:flex;padding:5px 30px;color: white;justify-content: center; "  class="justify-content-lg-between">
+                <div class="layout-topbar-left d-md-block d-none jus">
+                    <div class="layout-topbar-logo-wrapper d-lg-none">
+                        <a href="#" class="layout-topbar-logo">
+                            <img style="width:50px" src="assets/img/saglik-bakanligi-logo.png" alt="">
+                            <div class="ml-3">
+                                <h4 style="margin-bottom:0;font-weight:bold;color:white;">T.C. SAĞLIK BAKANLIĞI</h4>
+                                <strong class="d-none d-sm-block" style="font-size:12px;color:white;">SAĞLIK BİLGİ SİSTEMLERİ GENEL MÜDÜRLÜĞÜ</strong>
+                            </div>
+                        </a>
+                    </div>
 
+                    <div class="d-none d-lg-flex">
+                        <img src="assets/img/saglik-bakanligi-logo.png" style="width:50px" alt="">
+                        <div class="ml-3">
+                            <h4 style="margin-bottom:0;font-weight:bold">T.C. SAĞLIK BAKANLIĞI</h4>
+                            <strong style="font-size:12px">SAĞLIK BİLGİ SİSTEMLERİ GENEL MÜDÜRLÜĞÜ</strong>
+                        </div>
+                    </div>
+                  
+           
+                </div>
+                <div class="layout-topbar-right fadeInDown ">
+                    <ul class="right-menu navbar navbar-expand-lg ">
+                        <li><a class="dropdown-item" href="#">Tüm yayınlar</a></li>
+                        <li><a class="dropdown-item" href="#">Kitaplar</a></li>
+                        <li><a class="dropdown-item" href="#"> Dergiler</a></li>
+                        <li><a class="dropdown-item" href="#">Makeleler</a></li>
+                        <li><a class="dropdown-item" href="#">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+
+                    <!-- <ul class="profile-mobile-wrapper">
+                        <li #mobileProfile class="topbar-item profile-item" [ngClass]="{'active-topmenuitem': appMain.activeTopbarItem === mobileProfile}">
+
+
+                            <span class="profile-info-wrapper">
+                                <div class="d-flex justify-content-around align-items-center">
+                                    <div style="text-align: center;">
+                                        <h3>{{name}}</h3>
+                                        <span>{{roleType}}</span>
+                                    </div>
+                                    <div>
+                                        <button routerLink="/hesap/giris" (click)="localRemove()" class="p-button-outlined " style="border:none;width:60px;border-radius:4px">Çıkış</button>
+                                    </div>
+                                </div>
+                            </span>
+
+                            <ul class="fadeInDown" (click)="appMain.topbarItemClick = true">
+                                <li class="profile-submenu-header justify-content-center">
+
+                                    <div class="profile row text-center  align-items-center">
+                                        <img src="assets/layout/images/topbar/avatar-eklund.png" style="width: 100px;" alt="mirage-layout" width="45" />
+                                        <h1>{{name}}</h1>
+                                        <span>{{roleType}}</span>
+                                    </div>
+                                </li>
+
+                                <li class="layout-submenu-footer">
+                                    <button routerLink="/hesap/giris" class="signout-button">Çıkış</button>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+        
+        </div>
         <!-- <app-rightpanel></app-rightpanel> -->
 
         <!-- <app-breadcrumb></app-breadcrumb> -->

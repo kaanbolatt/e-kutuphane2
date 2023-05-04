@@ -1,3 +1,29 @@
-.arrow{
-    cursor:pointer; width: 30px;height: 30px;position: absolute;
+.arrow {
+  width: 10px;
+  height: 10px;
 }
+.arrow-wrapper {
+    cursor: pointer;
+  box-shadow: 0px 2px 49px 15px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.arrow-1 {
+    top: 150px;
+    left: 0;
+  }
+  &.arrow-2 {
+    top: 150px;
+    right: 0;
+  }
+  &:hover{
+    background-color: #c6d2e3ce;
+  }
+}
+
+

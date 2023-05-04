@@ -812,9 +812,7 @@ $gutter: 0.5rem; //for primeflex grid system
   .layout-content {
     flex: 1 0 auto;
     padding: 0;
-    height: 93vh;
 
-    overflow-y: auto;
   }
 
   .role-autocomplete {
@@ -1472,7 +1470,7 @@ border:none
   }
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);
   box-shadow: unset;
 }
@@ -1646,4 +1644,25 @@ body {
 
 .infoCircle {
   content: url("assets/img/infoCircle.png");
+}
+.book-image{
+  background: url('assets/img/book.png');
+}
+
+.nav-going{
+
+
+  transition: max-height 0.15s ease-out;
+  transform: translateY(-300px);
+  
+  transition: all 0.5s ease-in-out;
+
+}
+
+.nav-coming{
+
+  transform: translateY(0px)!important;
+  
+  transition: all 0.5s ease-in-out;
+
 }

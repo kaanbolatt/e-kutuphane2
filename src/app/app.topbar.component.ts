@@ -8,7 +8,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
 	template: `
 
 
-    <div class="layout-topbar" style="width: 100%;padding:20px;min-height:375px;z-index:1">
+    <div class="layout-topbar" id="topbar" style="width: 100%;padding:20px;z-index:1">
         <div class="layout-topbar-wrapper" style="height:100%;flex-direction:column;">
             <div style="display:flex;padding:5px 30px;">
                 <div class="layout-topbar-left">
@@ -48,7 +48,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                         <li><a class="dropdown-item" href="#">Sıkça Sorulan Sorular</a></li>
                     </ul>
 
-                    <ul class="profile-mobile-wrapper">
+                    <!-- <ul class="profile-mobile-wrapper">
                         <li #mobileProfile class="topbar-item profile-item" [ngClass]="{'active-topmenuitem': appMain.activeTopbarItem === mobileProfile}">
 
 
@@ -80,7 +80,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <div class="searchbar mt-5" style="width:100%;border-radius:100px;background-color:white;">
