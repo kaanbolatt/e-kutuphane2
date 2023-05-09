@@ -18,7 +18,7 @@ lastKnownScrollPosition=0
 
      let element=<HTMLElement> document.getElementById('topbar');
      let element2=<HTMLElement> document.getElementById('sticky-panel');
-     if( this.lastKnownScrollPosition<window.scrollY){
+     if( this.lastKnownScrollPosition<window.scrollY &&window.scrollY>229){
       if(window.scrollY>429){
 element2.classList.add('nav-coming')
       }

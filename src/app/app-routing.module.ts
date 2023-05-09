@@ -17,6 +17,12 @@ import { AppMainComponent } from './app.main.component';
                         { path: '', loadChildren: () => import('./sozlesme/sozlesme.module').then(m => m.SozlesmeModule) },
                     ]
             },
+            {
+                path: 'main', data: { title: 'Çağrı Merkezi' }, children:
+                    [
+                        { path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
+                    ]
+            },
 
             { path: '**', redirectTo: '/' },
         ], { scrollPositionRestoration: 'enabled' })

@@ -71,7 +71,6 @@ export function tokenGetter() {
         AppMenuComponent,
         AppMenuitemComponent,
         AppTopBarComponent,
-        AppFooterComponent,
         AppRightPanelComponent,
         AppBreadcrumbComponent,
     ],

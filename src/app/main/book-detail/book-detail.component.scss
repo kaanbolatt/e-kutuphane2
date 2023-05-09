@@ -1,0 +1,74 @@
+.book-detail {
+    .detail-header{
+        color: white;
+        span{
+            color: rgba(66, 169, 227, 1)
+            ;
+        }
+    }
+  .detail-img {
+    width: 271.02px;
+    height: 382.03px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 29px 0px rgba(0,0,0,0.75);
+
+    padding: 0;
+  }
+  .blue-area {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(240.42deg, #2f69bf 0%, #1d2b64 101.4%);
+    height: 240px;
+    z-index: -1;
+  }
+  .download {
+    background: #1678f2;
+    border: none;
+    &:hover {
+      background: #115ebc;
+    }
+  }
+  .nowus {
+    background: white;
+    border-color: black;
+    color: black;
+    &:hover {
+      background: rgb(219, 219, 219);
+    }
+  }
+  button {
+    max-width: 271.02px;
+  }
+}
+.arrow {
+    width: 10px;
+    height: 10px;
+  }
+  .arrow-wrapper {
+      cursor: pointer;
+    box-shadow: 0px 2px 49px 15px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.arrow-1 {
+      top: 150px;
+      left: 0;
+    }
+    &.arrow-2 {
+      top: 150px;
+      right: 0;
+    }
+    &:hover{
+      background-color: #c6d2e3ce;
+    }
+  }
+  
+  ::ng-deep body{
+background: white;
+  }

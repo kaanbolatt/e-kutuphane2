@@ -100,6 +100,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { AppDropdownComponent } from './components/app-dropdown/app-dropdown.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import {SidebarModule} from 'primeng/sidebar';
+import { AppFooterComponent } from '../app.footer.component';
 
 registerLocaleData(localeTr, 'tr');
 const maskConfig: Partial<IConfig> = {
@@ -211,8 +212,11 @@ const maskConfig: Partial<IConfig> = {
     HeaderComponent,
     ProcessCardComponent,
     AppDropdownComponent,
+    AppFooterComponent
   ],
   exports: [
+    
+    AppFooterComponent,
     FormsModule,
     SmsDialogComponent,
     CommonModule,

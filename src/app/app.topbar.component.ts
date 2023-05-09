@@ -4,8 +4,8 @@ import { AppMainComponent } from './app.main.component';
 import { RoleTypeEnum } from './shared/enums/role-type.enum';
 
 @Component({
-	selector: 'app-topbar',
-	template: `
+    selector: 'app-topbar',
+    template: `
 
 
     <div class="layout-topbar" id="topbar" style="width: 100%;padding:20px;z-index:1">
@@ -83,12 +83,12 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     </ul> -->
                 </div>
             </div>
-            <div class="searchbar mt-5" style="width:100%;border-radius:100px;background-color:white;">
+            <div class="searchbar mt-5 " style="width:100%;border-radius:100px;background-color:white;">
 
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="field text-start mt-4">
+                <div class="row" style="padding: 10px;">
+                    <div class="col-lg-5">
+                        <div class="field text-start mt-4" style="border-right: 1px solid #00000017;">
                             <div class="p-inputgroup  m-auto">
 								<div class="d-flex align-items-center">
 								<i style="font-size: 20px;" class="pi pi-search"></i>
@@ -103,20 +103,21 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     </div>
 
 
-                    <div class="col-lg-2">
-                        <div class="field mt-4 ">
+                    <div class="col-lg-2" style="margin:0 20px ;">
+                        <div class="field mt-4 position-relative" style="border-right: 1px solid #00000017;">
 
-                            <app-dropdown [controllerName]="'Common'" [secondCheck]="true" [id]="'cityCode'" [methodName]="'CityList'" [placeholder]="'Şehir'">
+                            <app-dropdown  [controllerName]="'Common'" [secondCheck]="true" [id]="'cityCode'" [methodName]="'CityList'" [placeholder]="'Yayın Türü'">
                             </app-dropdown>
+                            <i class="pi pi-book"></i>
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="field text-start mt-4">
+                    <div class="col-lg-2" >
+                        <div class="field text-start mt-4 position-relative">
                             <div class="p-inputgroup  m-auto">
-                                <span class="p-float-label">
-                                    <p-calendar class="three-side-input" selectionMode="range" [showIcon]="true" formControlName="createdDate" [placeholder]="'Oluşturma Tarih Aralığı'"></p-calendar>
-                                    <label for="mail">Oluşturma Tarihi</label>
-                                </span>
+                                 <p-calendar class="three-side-input" [showIcon]="true" formControlName="createdDate" [placeholder]="'Yayın Tarihi '"></p-calendar>
+                          
+                                    <i class="pi pi-calendar-plus"></i>
+                              
                             </div>
 
                         </div>
@@ -130,52 +131,83 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                 </div>
 
             </div>
+
+            <div class="announce" style="margin-top: 140px;">
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active text-center">
+selam    </div>
+    <div class="carousel-item text-center">
+    baran  
+    </div>
+    <div class="carousel-item text-center">
+    naber   
+    </div>
+    <div class="carousel-item text-center">
+    kaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanks   
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+            
+            </div>
         </div>
     </div>
     `
 })
 export class AppTopBarComponent implements OnInit {
 
-	activeItem: number;
-	colorChange: boolean = true;
-	name = "test"
-	roleType = ""
-	institutionName = "";
+    activeItem: number;
+    colorChange: boolean = true;
+    name = "test"
+    roleType = ""
+    institutionName = "";
 
-	constructor(public appMain: AppMainComponent) { }
-	ngOnInit(): void {
-		// this.name = JSON.parse(localStorage.getItem('user_info')).fullName
-		// console.log('JSON.parse(localStorage.getItem(user_info)): ', JSON.parse(localStorage.getItem('user_info')));
-		// this.institutionName = JSON.parse(localStorage.getItem('user_info'))?.jwtDto?.institutionName
-		// // this.takeRole()
-	}
+    constructor(public appMain: AppMainComponent) { }
+    ngOnInit(): void {
+        // this.name = JSON.parse(localStorage.getItem('user_info')).fullName
+        // console.log('JSON.parse(localStorage.getItem(user_info)): ', JSON.parse(localStorage.getItem('user_info')));
+        // this.institutionName = JSON.parse(localStorage.getItem('user_info'))?.jwtDto?.institutionName
+        // // this.takeRole()
+    }
 
-	mobileMegaMenuItemClick(index) {
-		this.appMain.megaMenuMobileClick = true;
-		this.activeItem = this.activeItem === index ? null : index;
-	}
-	colorChanger() {
-		this.colorChange = !this.colorChange;
-	}
-	localRemove() {
-		localStorage.removeItem("auth_token")
-		localStorage.removeItem("_grecaptcha")
-		localStorage.removeItem("user_info")
+    mobileMegaMenuItemClick(index) {
+        this.appMain.megaMenuMobileClick = true;
+        this.activeItem = this.activeItem === index ? null : index;
+    }
+    colorChanger() {
+        this.colorChange = !this.colorChange;
+    }
+    localRemove() {
+        localStorage.removeItem("auth_token")
+        localStorage.removeItem("_grecaptcha")
+        localStorage.removeItem("user_info")
 
-	}
-	takeRole() {
-		if (RoleTypeEnum.ASM == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
+    }
+    takeRole() {
+        if (RoleTypeEnum.ASM == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
 
-			this.roleType = "ASM";
-		} else if (RoleTypeEnum.İSM == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
-			this.roleType = "İSM";
+            this.roleType = "ASM";
+        } else if (RoleTypeEnum.İSM == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
+            this.roleType = "İSM";
 
-		} else if (RoleTypeEnum.SBA == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
-			this.roleType = "SBA";
-		}
-		else if (RoleTypeEnum.ADMIN == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
-			this.roleType = "Admin Hesabı";
-		}
+        } else if (RoleTypeEnum.SBA == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
+            this.roleType = "SBA";
+        }
+        else if (RoleTypeEnum.ADMIN == JSON.parse(localStorage.getItem('user_info'))?.jwtDto.roleGuid) {
+            this.roleType = "Admin Hesabı";
+        }
 
-	}
+    }
 }

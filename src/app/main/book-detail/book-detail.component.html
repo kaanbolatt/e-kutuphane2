@@ -1,0 +1,69 @@
+<div class="position-relative book-detail">
+  <div class="blue-area">
+  </div>
+  <div class="container" style="padding-top:70px ;">
+    <div class="row gy-5 justify-content-center">
+
+
+      <div class="col-lg-8 d-lg-none d-block">
+        <div class="row">
+          <div style="color:white" class="detail-header">
+            <h4 class="mb-4">Sağlık İstatistikleri Yıllığı</h4>
+            <p><span>#Kitap</span> | Yayımlayan : <span>Sağlık Hizmetleri Genel Müdürlüğü</span></p>
+            <p> <i class="pi pi-flag"></i> Dil : <span>İngilizce</span> &nbsp;&nbsp;|&nbsp;&nbsp; <i
+                class="pi pi-calendar-plus"></i> Yıl : <span> Şubat 2021</span> &nbsp;&nbsp;|&nbsp;&nbsp; <i
+                class="pi pi-file-pdf"></i> Boyut : <span> 104.76 KB</span>&nbsp;&nbsp; |&nbsp;&nbsp;<i
+                class="pi pi-book"></i> Sayfa : <span>13</span></p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 text-center">
+        <div class="row justify-content-center gy-3 gx-2">
+          <img class="detail-img" src="assets/img/book.png" alt="">
+          <button pButton pRipple label="İndir (104.76 KB)" class="download"></button>
+          <button pButton pRipple label="Görüş Bildir" class="nowus"></button>
+        </div>
+      </div>
+
+      <div class="col-lg-8 d-lg-block d-none">
+        <div class="row">
+          <div style="color:white" class="detail-header">
+            <h4 class="mb-4">Sağlık İstatistikleri Yıllığı</h4>
+            <p><span>#Kitap</span> | Yayımlayan : <span>Sağlık Hizmetleri Genel Müdürlüğü</span></p>
+            <p> <i class="pi pi-flag"></i> Dil : <span>İngilizce</span> &nbsp;&nbsp;|&nbsp;&nbsp; <i
+                class="pi pi-calendar-plus"></i> Yıl : <span> Şubat 2021</span> &nbsp;&nbsp;|&nbsp;&nbsp; <i
+                class="pi pi-file-pdf"></i> Boyut : <span> 104.76 KB</span>&nbsp;&nbsp; |&nbsp;&nbsp;<i
+                class="pi pi-book"></i> Sayfa : <span>13</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="history mt-4 mb-5 p-5" style="background-color: white">
+    <div class="mb-5 position-relative">
+      <div class="arrow-wrapper arrow-1" (click)="scrollLeft()">
+        <img src="assets/img/left-arrow.png" class="arrow" style="margin-right:2px;" alt="">
+      </div>
+      <div class="arrow-wrapper arrow-2" (click)="scrollRight()">
+        <img src="assets/img/right-arrow.png" class="arrow" style="margin-left:2px;" alt="">
+      </div>
+      <div class="row  gy-5 flex-xl-nowrap outer_container" style="overflow: auto;  flex-wrap: nowrap;">
+
+        <div class=" " *ngFor="let item of model;let i = index"
+          style="margin-bottom: 10px;height: 316px;width:224px;border-radius: 16px;  ">
+          <div class="book-image"
+            style="height: 100%;width:100%;border-radius: 16px;box-shadow: 0px 2px 49px -17px rgba(0,0,0,0.75);"
+            [ngStyle]="{'background': ' url(book.png) no-repeat -8px 0'}"></div>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+  </div>
+
+</div>
