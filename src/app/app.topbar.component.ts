@@ -34,9 +34,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     <a href="#" class="sidebar-menu-button" (click)="appMain.onMenuButtonClick($event)">
                         <i class="pi pi-bars"></i>
                     </a>
-                    <a href="#" class="topbar-menu-mobile-button" (click)="appMain.onTopbarMobileMenuButtonClick($event)">
-                        <i class="pi pi-ellipsis-v"></i>
-                    </a>
+           
            
                 </div>
                 <div class="layout-topbar-right fadeInDown">
@@ -88,7 +86,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
 
                 <div class="row" style="padding: 10px;">
                     <div class="col-lg-5">
-                        <div class="field text-start mt-4" style="border-right: 1px solid #00000017;">
+                        <div class="field text-start mt-4 searchtop" style="border-right: 1px solid #00000017;">
                             <div class="p-inputgroup  m-auto">
 								<div class="d-flex align-items-center">
 								<i style="font-size: 20px;" class="pi pi-search"></i>
@@ -103,15 +101,15 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     </div>
 
 
-                    <div class="col-lg-2" style="margin:0 20px ;">
-                        <div class="field mt-4 position-relative" style="border-right: 1px solid #00000017;">
+                    <div class="col-lg-2 col-sm-6 yay-class"  style="margin:0 20px ;">
+                        <div class="field mt-4 position-relative yay-class-border" style="border-right: 1px solid #00000017;">
 
                             <app-dropdown  [controllerName]="'Common'" [secondCheck]="true" [id]="'cityCode'" [methodName]="'CityList'" [placeholder]="'Yayın Türü'">
                             </app-dropdown>
                             <i class="pi pi-book"></i>
                         </div>
                     </div>
-                    <div class="col-lg-2" >
+                    <div class="col-lg-2 col-sm-6 yay-class"  >
                         <div class="field text-start mt-4 position-relative">
                             <div class="p-inputgroup  m-auto">
                                  <p-calendar class="three-side-input" [showIcon]="true" formControlName="createdDate" [placeholder]="'Yayın Tarihi '"></p-calendar>

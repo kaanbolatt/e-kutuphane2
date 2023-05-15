@@ -20,19 +20,23 @@ export class AppMenuComponent implements OnInit {
     
             this.model = [
                 {
-                    icon: 'pi  pi-alluser', label: 'Personel Havuzu',  routerLink: ['/kullanici-listesi'],
+                    icon: '', label: 'Tüm Yayınlar',
                 }
                 ,
                 {
-                    label: 'Firma İşlemleri', icon: 'pi  pi-document', routerLink: ['/firma-listesi']
+                    label: 'Makaleler', icon: 'Kitaplar', 
                 }
                 ,
                 {
-                    label: 'Vpn İşlemleri', icon: 'pi pi-earth', routerLink: ['/vpn-listesi']
+                    label: 'Makaleler', icon: 'Makaleler', 
                    
                 },
                 {
-                    label: 'Sistem Yönetimi', icon: 'pi pi-set',
+                    label: 'Dergiler', icon: 'Dergiler',
+                   
+                },
+                {
+                    label: 'SSS', icon: 'SSS',
                    
                 },
             ];

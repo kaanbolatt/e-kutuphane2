@@ -44,7 +44,7 @@ element2.classList.add('nav-coming')
     var leftPos = $('div.outer_container').scrollLeft();
     console.log(leftPos);
     $("div.outer_container").animate({
-      scrollLeft: leftPos + 300
+      scrollLeft: leftPos + 224
     }, 800);
 
   }
@@ -52,7 +52,7 @@ element2.classList.add('nav-coming')
     var leftPos = $('div.outer_container').scrollLeft();
     console.log(leftPos);
     $("div.outer_container").animate({
-      scrollLeft: leftPos - 300
+      scrollLeft: leftPos - 224
     }, 800);
   }
   scrollRight2() {
@@ -60,7 +60,7 @@ element2.classList.add('nav-coming')
     var leftPos = $('div.outer_container2').scrollLeft();
     console.log(leftPos);
     $("div.outer_container2").animate({
-      scrollLeft: leftPos + 300
+      scrollLeft: leftPos + 224
     }, 800);
 
   }
@@ -68,7 +68,7 @@ element2.classList.add('nav-coming')
     var leftPos = $('div.outer_container2').scrollLeft();
     console.log(leftPos);
     $("div.outer_container2").animate({
-      scrollLeft: leftPos - 300
+      scrollLeft: leftPos - 224
     }, 800);
   }
 }

@@ -21,13 +21,13 @@
 
   <div class="history mt-4 mb-5 p-5" style="    background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);" >
     <div class="mb-5 position-relative">
-      <div class="arrow-wrapper arrow-1" (click)="scrollLeft()">
+      <div class="arrow-wrapper arrow-1" (click)="scrollLeft2()">
       <img src="assets/img/left-arrow.png" class="arrow"  style="margin-right:2px;"  alt="">
     </div>
-    <div class="arrow-wrapper arrow-2" (click)="scrollRight()" >
+    <div class="arrow-wrapper arrow-2" (click)="scrollRight2()" >
       <img src="assets/img/right-arrow.png" class="arrow" style="margin-left:2px;" alt="">
     </div>
-      <div class="row  gy-5 flex-xl-nowrap outer_container"  style="overflow: auto;  flex-wrap: nowrap;">
+      <div class="row  gy-5 flex-xl-nowrap outer_container2"  style="overflow: auto;  flex-wrap: nowrap;">
 
         <div class=" " *ngFor="let item of model;let i = index" style="margin-bottom: 10px;height: 316px;width:224px;border-radius: 16px;  ">
             <div class="book-image" style="height: 100%;width:100%;border-radius: 16px;box-shadow: 0px 2px 49px -17px rgba(0,0,0,0.75);" [ngStyle]="{'background': ' url(book.png) no-repeat -8px 0'}"></div>
@@ -41,45 +41,7 @@
 
 
 
-  <div class="history mt-4 mb-5 p-5">
-    <div class="mb-5 position-relative">
-      <div class="arrow-wrapper arrow-1" (click)="scrollLeft()">
-      <img src="assets/img/left-arrow.png" class="arrow"  style="margin-right:2px;"  alt="">
-    </div>
-    <div class="arrow-wrapper arrow-2" (click)="scrollRight()" >
-      <img src="assets/img/right-arrow.png" class="arrow" style="margin-left:2px;" alt="">
-    </div>
-      <div class="row  gy-5 flex-xl-nowrap outer_container"  style="overflow: auto;  flex-wrap: nowrap;">
 
-        <div class=" " *ngFor="let item of model;let i = index" style="margin-bottom: 10px;height: 316px;width:224px;border-radius: 16px;  ">
-            <div class="book-image" style="height: 100%;width:100%;border-radius: 16px;box-shadow: 0px 2px 49px -17px rgba(0,0,0,0.75);" [ngStyle]="{'background': ' url(book.png) no-repeat -8px 0'}"></div>
-        </div>
-  
-      </div>
-    </div>
-    <hr>
-  </div>
-
-
-
-  <div class="history mt-4 mb-5 p-5" style="    background: linear-gradient(240.42deg, #4a6fa4 0%, #192f50 101.4%);" >
-    <div class="mb-5 position-relative">
-      <div class="arrow-wrapper arrow-1" (click)="scrollLeft()">
-      <img src="assets/img/left-arrow.png" class="arrow"  style="margin-right:2px;"  alt="">
-    </div>
-    <div class="arrow-wrapper arrow-2" (click)="scrollRight()" >
-      <img src="assets/img/right-arrow.png" class="arrow" style="margin-left:2px;" alt="">
-    </div>
-      <div class="row  gy-5 flex-xl-nowrap outer_container"  style="overflow: auto;  flex-wrap: nowrap;">
-
-        <div class=" " *ngFor="let item of model;let i = index" style="margin-bottom: 10px;height: 316px;width:224px;border-radius: 16px;  ">
-            <div class="book-image" style="height: 100%;width:100%;border-radius: 16px;box-shadow: 0px 2px 49px -17px rgba(0,0,0,0.75);" [ngStyle]="{'background': ' url(book.png) no-repeat -8px 0'}"></div>
-        </div>
-  
-      </div>
-    </div>
-    <hr>
-  </div>
 
 
 

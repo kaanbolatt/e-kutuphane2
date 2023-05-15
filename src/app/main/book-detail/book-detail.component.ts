@@ -44,7 +44,7 @@ export class BookDetailComponent implements OnInit {
       var leftPos = $('div.outer_container').scrollLeft();
       console.log(leftPos);
       $("div.outer_container").animate({
-        scrollLeft: leftPos + 222
+        scrollLeft: leftPos + 224
       }, 800);
   
     }
@@ -52,7 +52,7 @@ export class BookDetailComponent implements OnInit {
       var leftPos = $('div.outer_container').scrollLeft();
       console.log(leftPos);
       $("div.outer_container").animate({
-        scrollLeft: leftPos - 222
+        scrollLeft: leftPos - 224
       }, 800);
     }
     scrollRight2() {

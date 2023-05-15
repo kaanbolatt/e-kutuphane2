@@ -6,6 +6,7 @@ import { AppFooterComponent } from '../app.footer.component';
 import { MainRoutingModule } from './main-routing.module';
 import { ShareddModule } from '../shared/shared.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -14,6 +15,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     MainPageComponent,
     MainLayoutComponent,
     BookDetailComponent,
+    ContactComponent,
 
     
   ],

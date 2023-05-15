@@ -1,0 +1,41 @@
+<div class="under-header d-flex justify-content-center">
+    <h5 class="mt-3" style="color: white;">Yayın Ekle</h5>
+    <div class="yayinlar">
+        <div class="row yayin-row">
+            <div class="col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col-sm-8 col-md-6 col-lg-4 yayin">
+                <div class="row gy-2 gx-2 ">
+                    <div (click)="selected=0" class="col-lg-4 ">
+                        <div [ngClass]="{'active':selected==0}" class="categories">
+                            <i style="font-size:20px; margin-right: 7px;" class="pi pi-microsoft "></i>
+                            <span>Kitap Ekle</span>
+                        </div>
+                    </div>
+                    <div (click)="selected=1" class=" col-lg-4 ">
+
+                        <div [ngClass]="{'active':selected==1}" class="categories ">
+                            <img src="assets/img/Books.png" alt="">
+                            <span>Dergi Ekle</span>
+                        </div>
+                    </div>
+                    <div (click)="selected=2" class=" col-lg-4 ">
+
+                        <div [ngClass]="{'active':selected==2}" class="categories ">
+                            <img src="assets/img/BookOpenText.png" alt="">
+                            <span>Makale Ekle</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-2 col-md-3 col-lg-4"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<app-add-article *ngIf="selected==2"></app-add-article>
+<app-add-book *ngIf="selected==0"></app-add-book>
+<app-add-magazine *ngIf="selected==1"></app-add-magazine>

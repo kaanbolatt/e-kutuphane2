@@ -23,6 +23,12 @@ import { AppMainComponent } from './app.main.component';
                         { path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
                     ]
             },
+            {
+                path: 'panel', data: { title: 'Çağrı Merkezi' }, children:
+                    [
+                        { path: '', loadChildren: () => import('./panel/panel.module').then(m => m.PanelModule) },
+                    ]
+            },
 
             { path: '**', redirectTo: '/' },
         ], { scrollPositionRestoration: 'enabled' })
