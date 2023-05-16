@@ -112,7 +112,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                     <div class="col-lg-2 col-sm-6 yay-class"  >
                         <div class="field text-start mt-4 position-relative">
                             <div class="p-inputgroup  m-auto">
-                                 <p-calendar class="three-side-input" [showIcon]="true" formControlName="createdDate" [placeholder]="'Yayın Tarihi '"></p-calendar>
+                                 <p-calendar class="three-side-input" [showIcon]="true"  [placeholder]="'Yayın Tarihi '"></p-calendar>
                           
                                     <i class="pi pi-calendar-plus"></i>
                               

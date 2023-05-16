@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-books',
@@ -13,6 +14,41 @@ scrollControl=false
 lastKnownScrollPosition=0
   constructor() { }
   nabe="url('../../../../assets/img/Umke.jpg')"
+
+  customOptions: OwlOptions = {
+    autoWidth: true,
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    autoplay:true,
+    margin:10,
+    autoplaySpeed:300,
+    navSpeed: 700,
+    navText: ['<i class="pi pi-chevron-left"></i>', '<i class="pi pi-chevron-right"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+    
+      768: {
+        items: 4
+      },
+      991:{
+        items: 6
+      },
+      1200: {
+        items: 7
+      },
+   
+    },
+    nav: true
+  }
+
   ngOnInit(): void {
     document.addEventListener("scroll", (event) => {
 

@@ -1987,3 +1987,36 @@ body {
     margin: 10px;
   }
 }
+
+
+.owl-theme .owl-nav [class*="owl-"] {
+  background-color: white!important;
+  border-radius: 50%!important;
+  color: black!important;
+  width: 50px!important;
+  height: 50px!important;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  box-shadow: 0 0 30px 0 black!important;
+  &:hover {
+    background-color: rgb(222, 222, 222)!important;
+    color: black!important;
+  }
+  i {
+    font-size: 20px!important;
+  }
+}
+.owl-carousel {
+  position: relative;
+}
+.owl-prev {
+  position: absolute;
+  left: -30px;
+  top: 125px;
+}
+.owl-next {
+  position: absolute;
+  right: -30px;
+  top: 125px;
+}

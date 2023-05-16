@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-footer',
 	template: `
-        <div class="layout-footer mt-4" style="background-color:white;color:black;height:unset;position: sticky;width:100%;z-index:2;justify-content:space-between;padding:10px 30px;min-height:100px">
+        <div class="layout-footer " style="background-color:white;color:black;height:unset;position: sticky;width:100%;z-index:2;justify-content:space-between;padding:10px 30px;min-height:100px">
 		
                 <div class="layout-topbar-left ">
              
@@ -28,7 +28,7 @@ import { Component } from '@angular/core';
 
 			
         </div>
-		<hr>
+		
    
     `
 })

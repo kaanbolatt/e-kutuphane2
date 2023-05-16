@@ -27,3 +27,18 @@
 }
 
 
+
+::ng-deep.owl-carousel {
+  position: relative;
+}
+::ng-deep.owl-prev {
+  position: absolute;
+  left: -30px;
+  top: 125px;
+}
+::ng-deep.owl-next {
+  position: absolute;
+  right: -30px;
+  top: 125px;
+}
+
