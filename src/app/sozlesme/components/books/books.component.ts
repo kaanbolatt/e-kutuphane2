@@ -39,12 +39,23 @@ lastKnownScrollPosition=0
         items: 4
       },
       991:{
-        items: 6
+        items: 5
       },
       1200: {
+        items: 6
+      },
+      1400: {
         items: 7
       },
-   
+      1600: {
+        items: 8
+      },
+      1800: {
+        items: 9
+      },
+      2000: {
+        items: 10
+      },
     },
     nav: true
   }

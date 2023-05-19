@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { BooksComponent } from './components/books/books.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 FullCalendarModule.registerPlugins([

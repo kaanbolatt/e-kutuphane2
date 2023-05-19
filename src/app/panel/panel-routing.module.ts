@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddUserComponent } from './add-user/add-user.component';
 import { AddYayinComponent } from './add-yayin/add-yayin.component';
 import { ListYayinComponent } from './list-yayin/list-yayin.component';
 import { PanelLayoutComponent } from './panel-layout/panel-layout.component';
@@ -18,6 +19,10 @@ const routes: Routes = [{
   {
     path: 'liste',
     component: ListYayinComponent
+  },
+  {
+    path: 'kullanici-ekle',
+    component: AddUserComponent
   },
   
   

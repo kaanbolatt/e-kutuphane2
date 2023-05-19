@@ -151,6 +151,7 @@ $gutter: 0.5rem; //for primeflex grid system
     border-top-right-radius: 0;
   }
 
+
   @media (max-width: $xxs) {
     .mt-xxs-2 {
       margin-top: 1rem;
@@ -1008,9 +1009,8 @@ $gutter: 0.5rem; //for primeflex grid system
 .three-side-input {
   .p-inputtext {
     margin: 0;
-    background-color: $table-primary-color;
-    border: 1px solid #e8e8e8;
-    border-radius: 4px;
+    background-color: white;
+
     border-right: none;
     height: 40px;
   }
@@ -1162,7 +1162,7 @@ $gutter: 0.5rem; //for primeflex grid system
 }
 
 .p-fileupload {
-  width: 300px;
+
 
   margin: auto;
 
@@ -1184,16 +1184,16 @@ $gutter: 0.5rem; //for primeflex grid system
     padding: 0;
 
     .p-button {
-      width: 300px;
+      width: 100%;
       justify-content: start;
       align-items: center;
-      height: 50px;
+      height: 100px;
 
       &:focus {
         box-shadow: none !important;
       }
 
-      border: 2px solid #dedfdf;
+      border: 2px dashed #dedfdf;
       border-radius: 8px;
       background-color: transparent;
 
@@ -1217,8 +1217,10 @@ $gutter: 0.5rem; //for primeflex grid system
     padding: 0;
     overflow: auto;
     border: none !important;
-    width: 300px;
-    top: 0;
+    width: 98%;
+    position: absolute;
+    top:5px;
+    left:3px;
 
     .p-progressbar {
       display: none;
@@ -1226,7 +1228,17 @@ $gutter: 0.5rem; //for primeflex grid system
 
     .p-fileupload-files div:nth-child(1) {
       display: flex;
-      justify-content: center;
+      justify-content: start;
+      gap: 10px;
+      height: 100%;
+      width: 100%;
+
+      img{
+        height: 70px!important;
+        width: 50px!important;
+        border-radius: 8px!important;
+        object-fit: cover;
+      }
     }
 
     .p-fileupload-filename {
@@ -1309,6 +1321,8 @@ $gutter: 0.5rem; //for primeflex grid system
 .p-fileupload .p-fileupload-buttonbar .p-button .p-button-label {
   color: black;
   font-weight: bold;
+  text-align: center;
+  display: flex;
 }
 
 .widget-team ul li {
@@ -2019,4 +2033,13 @@ body {
   position: absolute;
   right: -30px;
   top: 125px;
+}
+.p-dropdown{
+  width: 100%!important;
+  border-radius: 8px;
+  border-color:  #e8e8e8;
+}
+.owl-item{
+  display:flex;
+  justify-content: center;
 }

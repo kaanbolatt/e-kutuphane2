@@ -6,9 +6,11 @@
 
         <ng-template let-file pTemplate="file">
                 <div *ngIf="fileAdded(file.name)"></div>
-                <!-- <div class="files-to-upload" *ngIf="file.type=='image/png'||file.type=='image/jpg'||file.type=='image/jpeg'||file.type=='image/webp'">
-                        <img style="width: 36px; height: 36px;border-radius: 8px;" [src]="file.objectURL.changingThisBreaksApplicationSecurity|safeHtml:'resourceUrl'" alt="">
-                        <div class="remove-file"(click)="dosyaSil(file)" ><i class="pi pi-trash"></i></div>
+                <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex gap-3">
+                <div class="files-to-upload" *ngIf="file.type=='image/png'||file.type=='image/jpg'||file.type=='image/jpeg'||file.type=='image/webp'">
+                        <img  [src]="file.objectURL.changingThisBreaksApplicationSecurity|safeHtml:'resourceUrl'" alt="">
+                      
                 </div>
                 <div class="files-to-upload" *ngIf="file.type=='application/pdf'">
                         <i class="pi pi-file-pdf"></i>
@@ -18,7 +20,10 @@
                         <i class="pi pi-file"></i>
                         <div class="remove-file" (click)="dosyaSil(file)"><i class="pi pi-trash"></i></div>
                 </div>
-                <div style="display:flex;align-items:center">{{file.name}}</div> -->
+                <div style="display:flex;align-items:center">{{file.name}}</div>
+        </div>
+                 <div (click)="dosyaSil(file)"  class="p-button red" style="width:100px ;height:40px ;margin-right: 10px;">Sil</div>
+                </div>
         </ng-template>
 
 </p-fileUpload>

@@ -23,15 +23,14 @@
             </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-6">
             <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Dil</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Seçiniz" />
-                    </div>
-                </div>
-            </div>
+              
+                  <label class="mb-3" style="font-weight: 600;"  for="identityNo">Dil</label>
+                  <app-dropdown [controllerName]="'Account'"   [methodName]="'RoleList'" [placeholder]="'Seçiniz'" >
+                  </app-dropdown>
+              
+              </div>
         </div>
         <div class="col-lg-4">
             <div class="field contact">

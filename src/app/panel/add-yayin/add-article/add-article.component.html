@@ -22,16 +22,14 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-6">
             <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Dil</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Seçiniz" />
-                    </div>
-                </div>
-            </div>
+              
+                  <label class="mb-3" style="font-weight: 600;"  for="identityNo">Dil</label>
+                  <app-dropdown [controllerName]="'Account'"   [methodName]="'RoleList'" [placeholder]="'Seçiniz'" >
+                  </app-dropdown>
+              
+              </div>
         </div>
         <div class="col-lg-4">
             <div class="field contact">
@@ -114,9 +112,26 @@
             </div>
         </div>
 
+        <div class="col-lg-6 ">
+            <div style="position: relative;">
+            
+                <app-file-upload [isHidden]="false"  [butonGorunum]="false" [isMultiple]="true" 
+                    >
+                </app-file-upload>
+            </div>
+        </div>
+        <div class="col-lg-6 ">
+            <div style="position: relative;">
+              
+                <app-file-upload [isHidden]="false"  [butonGorunum]="false" [isMultiple]="true" 
+                    >
+                </app-file-upload>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-lg-end" style="justify-content: center;">
             <button  type="submit"  
-            class="p-element p-ripple  p-button p-component" style="width: 330px;" disabled>Gönder</button>
+            class="p-element p-ripple  p-button p-component mt-4" style="width: 330px;" disabled>Gönder</button>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ import { AddArticleComponent } from './add-yayin/add-article/add-article.compone
 import { PanelLayoutComponent } from './panel-layout/panel-layout.component';
 import { PanelRoutingModule } from './panel-routing.module';
 import { ShareddModule } from '../shared/shared.module';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 
@@ -19,6 +20,7 @@ import { ShareddModule } from '../shared/shared.module';
     AddMagazineComponent,
     AddArticleComponent,
     PanelLayoutComponent,
+    AddUserComponent,
   ],
   imports: [
     CommonModule,

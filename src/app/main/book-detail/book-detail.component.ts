@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
@@ -39,37 +40,49 @@ export class BookDetailComponent implements OnInit {
     }
   
     
-    scrollRight() {
-  
-      var leftPos = $('div.outer_container').scrollLeft();
-      console.log(leftPos);
-      $("div.outer_container").animate({
-        scrollLeft: leftPos + 224
-      }, 800);
-  
-    }
-    scrollLeft() {
-      var leftPos = $('div.outer_container').scrollLeft();
-      console.log(leftPos);
-      $("div.outer_container").animate({
-        scrollLeft: leftPos - 224
-      }, 800);
-    }
-    scrollRight2() {
-  
-      var leftPos = $('div.outer_container2').scrollLeft();
-      console.log(leftPos);
-      $("div.outer_container2").animate({
-        scrollLeft: leftPos + 300
-      }, 800);
-  
-    }
-    scrollLeft2() {
-      var leftPos = $('div.outer_container2').scrollLeft();
-      console.log(leftPos);
-      $("div.outer_container2").animate({
-        scrollLeft: leftPos - 300
-      }, 800);
+    customOptions: OwlOptions = {
+      autoWidth: true,
+      loop: true,
+      mouseDrag: true,
+      touchDrag: true,
+      pullDrag: true,
+      dots: false,
+      autoplay:false,
+      margin:10,
+      autoplaySpeed:300,
+      navSpeed: 700,
+      navText: ['<i class="pi pi-chevron-left"></i>', '<i class="pi pi-chevron-right"></i>'],
+      responsive: {
+        0: {
+          items: 1
+        },
+        400: {
+          items: 2
+        },
+      
+        768: {
+          items: 4
+        },
+        991:{
+          items: 5
+        },
+        1200: {
+          items: 6
+        },
+        1400: {
+          items: 7
+        },
+        1600: {
+          items: 8
+        },
+        1800: {
+          items: 9
+        },
+        2000: {
+          items: 10
+        },
+      },
+      nav: true
     }
 
 }

@@ -28,7 +28,7 @@ export class FileUploadComponent extends BaseComponent implements OnInit, AfterV
   @Input() isHidden = true;
   @Input() dosyaSilBtn = true;
   @Input() fileUploadTemizle = false;
-  fileName:string="Dosya Yükleyiniz"
+  fileName:string="Yüklemek istediğiniz dosyayı seçin."
 
   activeImageUrl: SafeUrl;
   lastImageUrl = '';

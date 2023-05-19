@@ -7,6 +7,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { ShareddModule } from '../shared/shared.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { ContactComponent } from './contact/contact.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -22,7 +23,8 @@ import { ContactComponent } from './contact/contact.component';
   imports: [
     CommonModule,
     MainRoutingModule,
-    ShareddModule
+    ShareddModule,
+    CarouselModule
     
   ]
 })
