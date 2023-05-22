@@ -1,17 +1,15 @@
 export enum UserType {
-    admin = 1,
-    user=2
-    // patient = 2,
-    // doctor = 3,
-    // callCenter = 4,
-    // assistant = 5,
-    // guest = 6,
-    // laborant = 7,
-    // hospital = 8,
-    // healthyLifestyle = 9
+    Admin = 1,
+    Editor = 2,
+    Yazar = 3,
+    User = 4
 }
 
 export const userTypeDescriptions: Record<keyof typeof UserType, string> = {
-    admin: 'Admin',
-    user:'User'
+    Admin: 'Admin',
+    Editor:'Editor',
+    Yazar:'Yazar',
+    User:'User',
 };
+
+

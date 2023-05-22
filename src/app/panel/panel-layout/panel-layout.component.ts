@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel-layout',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
+  gotoKullaniciEkle() {
+    this.router.navigate(['/panel/kullanici-ekle']);
+  }
+  gotoBirimEkle() {
+    this.router.navigate(['/panel/birim-ekle']);
+  }
+  publicationAdd() {
+    this.router.navigate(['/panel']);
+  }
+  gotoIletisimListesi() {
+    this.router.navigate(['/panel/iletisim-listesi']);
+  }
+  gotoBannerListesi() {
+    this.router.navigate(['/panel/banner-listesi']);
+  }
+  gotoYayinListesi() {
+    this.router.navigate(['/panel/yayin-listesi']);
+  }
 }

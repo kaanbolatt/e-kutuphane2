@@ -1,0 +1,95 @@
+<div class="under-header d-flex justify-content-center">
+    <h5 class="mt-3" style="color: white;">İletişim Listesi</h5>
+
+</div>
+<div class="container main-content">
+    <div class="card">
+        <form [formGroup]="gh.getFilterForm()" (ngSubmit)="gh.setGridRefreshAsSearch();communicationGridRefresh();">
+            <p-fieldset legend="İletişim Arama Kriterleri" [toggleable]="true">
+                <div class="p-fluid p-formgrid p-grid">
+                    <!--Ad-Soyad-->
+                    <div class="p-field p-col">
+                        <label class="bold">Ad-Soyad</label>
+                        <input type="text" pInputText formControlName="adSoyad">
+                    </div>
+                </div>
+                <div style="margin-left: 10px;" class="p-fluid p-formgrid p-grid">
+                    <!--Telefon No-->
+                    <div class="p-field p-col">
+                        <label class="bold">Telefon No</label>
+                        <input type="text" pInputText formControlName="mobilePhone">
+                    </div>
+                </div>
+                <div style="margin-left: 10px;" class="p-fluid p-formgrid p-grid">
+                    <!--İletisim Durumu-->
+                    <div class="p-field p-col">
+                        <label class="bold">İletişim Durumu</label>
+                        <input type="text" pInputText formControlName="iletisimDurumu">
+                    </div>
+                </div>
+                <div style="margin-left: 10px;" class="p-fluid p-formgrid p-grid">
+                    <!--Email-->
+                    <div class="p-field p-col">
+                        <label class="bold">Email</label>
+                        <input type="text" pInputText formControlName="email">
+                    </div>
+                </div>
+
+                <p-footer class="ui-helper-clearfix">
+                    <div class="ui-inputgroup pull-right">
+                        <button style="margin-left: 10px;" pButton type="submit" label="Ara" class="p-button-outlined"></button>
+                        <button style="margin-left: 10px;" pButton type="button" label="Temizle" class="pull-right p-button-outlined p-button-danger" (click)="clearFilters()"></button>
+                    </div>
+                </p-footer>
+            </p-fieldset>
+        </form>
+    </div>
+
+    <p-panel header="İletişim Listesi" styleClass="mt10">
+        <div style="margin-top: 10px;">
+            <app-grid [paginator]="true" (gridRefresh)="communicationGridRefresh()" [exceleAktar]="false">
+                <ng-template let-rowData="rowData" cellTemplate="mobilePhone">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            {{rowData.mobilePhone}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-rowData="rowData" cellTemplate="aciklama">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            {{rowData.aciklama | truncatePipe}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-rowData="rowData" cellTemplate="iletisimDurumu">
+                    <div style="text-align:center" [ngClass]="getColoring(rowData)">
+                        <div style="text-align:center">
+                            {{rowData.iletisimDurumu|iletisimDurumuPipe}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-rowData="rowData" cellTemplate="islemler">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            <p-splitButton (onDropdownClick)="setSelectedRow(rowData)" [model]="islemMenuItems" label="İşlemler" icon="pi pi-plus" [model]="items" styleClass="p-button-help p-mr-2 p-mb-2"></p-splitButton>
+                        </div>
+                    </div>
+                </ng-template>
+            </app-grid>
+        </div>
+    </p-panel>
+</div>
+
+<p-dialog [(header)]="dialogDetayHeader" [(visible)]="isDialogDetayVisible" [style]="{width: '55vw'}" (onHide)="closeDialog(false)">
+    <div class="p-grid p-fluid">
+        <!--Aciklama-->
+        <div class="p-col-12">
+            <div class="p-col-12">
+                {{selectedRowData?.aciklama}}
+            </div>
+        </div>
+    </div>
+    <!-- <p-footer>
+    </p-footer> -->
+</p-dialog>

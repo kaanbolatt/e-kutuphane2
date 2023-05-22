@@ -1,0 +1,89 @@
+<div class="under-header d-flex justify-content-center">
+    <h5 class="mt-3" style="color: white;">İletişim Listesi</h5>
+
+</div>
+<div class="container main-content">
+    <div class="card">
+        <form [formGroup]="gh.getFilterForm()" (ngSubmit)="gh.setGridRefreshAsSearch();bannerTextGridRefresh();">
+            <p-fieldset legend="Banner Arama Kriterleri" [toggleable]="true">
+                <div class="p-fluid p-formgrid p-grid">
+                    <!--Order-->
+                    <div class="p-field p-col">
+                        <label class="bold">Sıra</label>
+                        <input type="text" pInputText formControlName="order">
+                    </div>
+                </div>
+
+                <p-footer class="ui-helper-clearfix">
+                    <div class="ui-inputgroup pull-right">
+                        <button style="margin-left: 10px;" pButton type="button" label="Ekle" class="p-button-outlined p-button-success" (click)="openDialog(islemTipiEnum.yeniKayit)"></button>
+                        <button style="margin-left: 10px;" pButton type="submit" label="Ara" class="p-button-outlined"></button>
+                        <button style="margin-left: 10px;" pButton type="button" label="Temizle" class="pull-right p-button-outlined p-button-danger" (click)="clearFilters()"></button>
+                    </div>
+                </p-footer>
+            </p-fieldset>
+        </form>
+    </div>
+
+    <p-panel header="İletişim Listesi" styleClass="mt10">
+        <div style="margin-top: 10px;">
+            <app-grid [paginator]="true" (gridRefresh)="bannerTextGridRefresh()" [exceleAktar]="false">
+                <ng-template let-rowData="rowData" cellTemplate="aciklama">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            {{rowData.aciklama | truncatePipe}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-rowData="rowData" cellTemplate="order">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            {{rowData.order}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-rowData="rowData" cellTemplate="islemler">
+                    <div style="text-align:center">
+                        <div style="text-align:center">
+                            <p-splitButton label="İşlemler" (onDropdownClick)="setSelectedRow(rowData)" [model]="islemMenuItems" icon="pi pi-plus" styleClass="p-button-help p-mr-2 p-mb-2"></p-splitButton>
+                        </div>
+                    </div>
+                </ng-template>
+            </app-grid>
+        </div>
+    </p-panel>
+</div>
+
+<p-dialog [(header)]="dialogFormHeader" [(visible)]="isDialogFormVisible" [style]="{width: '55vw'}" (onHide)="closeDialog(false)">
+    <form [formGroup]="dialogForm" (ngSubmit)="saveBanner()">
+        <div class="p-grid p-fluid">
+            <div class="p-col-6 p-md-6">
+                <!--aciklama-->
+                <div class="p-col-12">
+                    <label class="bold" required>Açıklama </label>
+                    <input type="text" pInputText pTooltip="Açıklama giriniz." formControlName="aciklama" placeholder="Açıklama">
+                    <div *ngIf="aciklama.invalid && (aciklama.dirty || aciklama.touched)" class="alert-required">
+                        <div *ngIf="aciklama.errors?.['required']">
+                            Açıklama zorunludur.
+                        </div>
+                    </div>
+                </div>
+                <!--order-->
+                <div class="p-col-12">
+                    <label class="bold" required>Sıra</label>
+                    <input type="number" pInputText pTooltip="Sıragiriniz." formControlName="order" placeholder="Sıra">
+                    <div *ngIf="order.invalid && (order.dirty || order.touched)" class="alert-required">
+                        <div *ngIf="order.errors?.['required']">
+                            Sıra zorunludur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button pButton type="submit" class="pull-right p-button-success p-button-outlined" label="Kaydet" icon="fa fa-check" [disabled]="!dialogForm.valid"></button>
+                </div>
+            </p-footer>
+        </div>
+    </form>
+</p-dialog>

@@ -9,6 +9,9 @@ import { PanelLayoutComponent } from './panel-layout/panel-layout.component';
 import { PanelRoutingModule } from './panel-routing.module';
 import { ShareddModule } from '../shared/shared.module';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddBirimComponent } from './add-birim/add-birim.component';
+import { BannerListesiComponent } from './banner-listesi/banner-listesi.component';
+import { IletisimListesiComponent } from './iletisim-listesi/iletisim-listesi.component';
 
 
 
@@ -21,6 +24,9 @@ import { AddUserComponent } from './add-user/add-user.component';
     AddArticleComponent,
     PanelLayoutComponent,
     AddUserComponent,
+    AddBirimComponent,
+    IletisimListesiComponent,
+    BannerListesiComponent,
   ],
   imports: [
     CommonModule,

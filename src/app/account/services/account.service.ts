@@ -18,7 +18,7 @@ export class AccountService extends BaseService {
   //#region User
 
   getToken(model: UserLogin) {
-    return this.httpHelper.post<any>(this.accountControllerName, 'GetToken', model);
+    return this.httpHelper.post<any>(this.accountControllerName, 'GetKutuphaneYonetimiToken', model);
   }
 
   userAddOrUpdate(model: any) {
@@ -53,7 +53,7 @@ export class AccountService extends BaseService {
     return this.httpHelper.delete<Role[]>(this.accountControllerName, 'UserDelete', id)
   }
   changeUserState(id: number) {
-    const param={"id":id}
+    const param = { "id": id }
     return this.httpHelper.get<any>(this.accountControllerName, 'UserStateChange', this.gh.createParams({ id }));
   }
 
@@ -81,5 +81,16 @@ export class AccountService extends BaseService {
   deleteRole(id: number) {
     return this.httpHelper.delete<Role[]>(this.accountControllerName, 'DeleteRole', id)
   }
+
+  forgetPassword(model: any) {
+    return this.httpHelper.post<TokenInfo>(this.accountControllerName, 'UserForgetPassword', model);
+  }
+
+  createPassword(model: any) {
+    return this.httpHelper.post<TokenInfo>(this.accountControllerName, 'CreatePassword', model);
+  }
+
+
+
   //#endregion Role
 }

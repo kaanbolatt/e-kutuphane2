@@ -19,9 +19,12 @@
             <div class="layout-topbar-main-right fadeInDown ">
                 <ul class="right-menu navbar navbar-expand-lg ">
                     <li><a class="dropdown-item" href="#">Anasayfa</a></li>
-                    <li><a class="dropdown-item" href="#">Yayın Listesi</a></li>
-                    <li><button class="p-button white" style="height: 40px;"><i class="pi pi-plus" style="margin-right:10px ;"></i>Kullanıcı Ekle</button></li>
-                    <li><button class="p-button blue" style="height: 40px;"> <i class="pi pi-plus" style="margin-right:10px ;color:white"></i>Yayın Ekle</button></li>
+                    <li><button class="p-button white" style="height: 40px;" (click)="gotoYayinListesi()">Yayın Listesi</button></li>
+                    <li><button class="p-button white" style="height: 40px;" (click)="gotoBannerListesi()">Banner Listesi</button></li>
+                    <li><button class="p-button white" style="height: 40px;" (click)="gotoIletisimListesi()">İletişim Listesi</button></li>
+                    <li><button class="p-button white" style="height: 40px;" (click)="gotoBirimEkle()"><i class="pi pi-plus" style="margin-right:10px ;"></i>Birim Ekle</button></li>
+                    <li><button class="p-button white" style="height: 40px;" (click)="gotoKullaniciEkle()"><i class="pi pi-plus" style="margin-right:10px ;"></i>Kullanıcı Ekle</button></li>
+                    <li><button class="p-button blue" style="height: 40px;" (click)="publicationAdd()"> <i class="pi pi-plus" style="margin-right:10px ;color:white"></i>Yayın Ekle</button></li>
                 </ul>
 
 
