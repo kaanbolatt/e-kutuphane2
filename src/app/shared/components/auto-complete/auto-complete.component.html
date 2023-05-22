@@ -1,5 +1,15 @@
 <form [formGroup]="_parentForm">
-    <p-autoComplete  class="three-side-input user-list-center" [multiple]="multiple" formControlName="{{id}}" [suggestions]="filteredObjects" (completeMethod)="search($event)"
-        [field]="field" (onSelect)="onSelect($event)" [disabled]="isDisabled" [placeholder]="placeholder" [dropdown]="dropDown" >
+    <p-autoComplete [unique]="true" [multiple]="multiple" [formControlName]="id" [suggestions]="filteredObjects" (completeMethod)="search($event)" field="label" (onSelect)="onSelect($event)" [placeholder]="placeholder">
+        <ng-template let-item pTemplate="selectedItem">
+            <span>{{item.label == null ? item.name : item.label}}</span>
+            <span *ngIf="readonly&&(item.title==0||item.title==null)" (click)="removeItemForReadonlyMode(item.value)" class="p-autocomplete-token-icon pi pi-times-circle" style="margin-left: 5px;"></span>
+        </ng-template>
+        <ng-template let-item pTemplate="item">
+            <span *ngIf="item.value!=-999">{{item.label == null ? item.name : item.label}}</span>
+            <span *ngIf="item.value==-999">Kayıt bulunamadı. Eklemek ister misiniz?</span>
+            <button pButton type="button" *ngIf="item.value==-999" class="p-button-success btn-sm" style="max-width: 50px;">
+                Ekle
+            </button>
+        </ng-template>
     </p-autoComplete>
 </form>

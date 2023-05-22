@@ -1,81 +1,154 @@
+<div class="container main-content">
+    <form [formGroup]="publicationForm">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Başlık</label>
+                        <div class="p-inputgroup">
+                            <input pInputText formControlName="baslik" type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
+                        </div>
+                        <div *ngIf="baslik.invalid && (baslik.dirty || baslik.touched)" class="alert-required">
+                            <div *ngIf="baslik.errors?.['required']">
+                                Başlık zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-<div class="container main-content" >
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Başlık</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Eseri Yayınlayan Kişi</label>
+                        <div class="p-inputgroup">
+                            <app-auto-complete 
+                            class="w-100" 
+                            [multiple]="true" 
+                            [placeholder]="'Yazar ismi giriniz...'" 
+                            [parentForm]="publicationForm" 
+                            [id]="'authorTagChips'" 
+                            [controllerName]="'KutuphaneYonetimi'"
+                            [methodName]="'AuthorTagListGet'">
+                            </app-auto-complete>
+                        </div>
+                        <div *ngIf="authorTagChips.invalid && (authorTagChips.dirty || authorTagChips.touched)" class="alert-required">
+                            <div *ngIf="authorTagChips.errors?.['required']">
+                                Eseri yayınlayan kişi zorunludur!
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Eseri Yayınlayan Kişi</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
-            <div class="field contact">
-              
-                  <label class="mb-3" style="font-weight: 600;"  for="identityNo">Dil</label>
-                  <app-dropdown [controllerName]="'Account'"   [methodName]="'RoleList'" [placeholder]="'Seçiniz'" >
-                  </app-dropdown>
-              
-              </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Yayın İçeriğine Dair Tag</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Tarih</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Sayfa Sayısı</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="" style="min-height:250px ;">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Özet Bilgisi</label>
-                    <div class="p-inputgroup">
-                        <textarea pInputText type="text"  style="min-height:200px ;" class="p-inputtext p-component p-element" placeholder="Yazınız" ></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="field contact">
 
-        <div class="d-flex justify-content-lg-end" style="justify-content: center;">
-            <button  type="submit"  
-            class="p-element p-ripple  p-button p-component" style="width: 330px;" disabled>Gönder</button>
+                    <label class="mb-3" style="font-weight: 600;" for="identityNo">Dil</label>
+                    <p-dropdown [options]="languageType" formControlName="language" class="full-width" placeholder="Lütfen Seçiniz"></p-dropdown>
+                </div>
+                <div *ngIf="language.invalid && (language.dirty || language.touched)" class="alert-required">
+                    <div *ngIf="language.errors?.['required']">
+                        Dil zorunludur!
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Yayın İçeriğine Dair Tag</label>
+                        <div class="p-inputgroup">
+                            <app-auto-complete 
+                            class="w-100" 
+                            [showNewAdd]="true" 
+                            [multiple]="true" 
+                            [placeholder]="'Anahtar kelime giriniz...'" 
+                            [parentForm]="publicationForm" 
+                            [id]="'keyWordTagChips'" 
+                            [controllerName]="'KutuphaneYonetimi'"
+                            [methodName]="'KeyWordTagListGet'">
+                            </app-auto-complete>
+                        </div>
+                        <div *ngIf="keyWordTagChips.invalid && (keyWordTagChips.dirty || keyWordTagChips.touched)" class="alert-required">
+                            <div *ngIf="keyWordTagChips.errors?.['required']">
+                                Yayın içeriğine dair etiket zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative">
+                        <label class="mb-3" style="font-weight: 600;">Basım Tarihi</label>
+                        <div class="p-inputgroup">
+                            <p-calendar dateFormat="M/d/yy" formControlName="basimTarihi"></p-calendar>
+                        </div>
+                        <div *ngIf="basimTarihi.invalid && (basimTarihi.dirty || basimTarihi.touched)" class="alert-required">
+                            <div *ngIf="basimTarihi.errors?.['required']">
+                                Basım tarihi zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Sayfa Sayısı</label>
+                        <div class="p-inputgroup">
+                            <input pInputText type="text" formControlName="sayfaSayisi" class="p-inputtext p-component p-element" placeholder="Sayfa Sayısı" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="min-height:250px ;">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Özet Bilgisi</label>
+                        <div class="p-inputgroup">
+                            <textarea pInputText formControlName="aciklama" type="text" style="min-height:200px ;" class="p-inputtext p-component p-element" placeholder="Yazınız"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="field text-start">
+                        <label for="name" class="bold">Kapak Resmi</label> <span> (Sadece PDF)</span>
+                        <div class="p-relative">
+                            <div class="publication-add">
+                                <p class="white-and-font"> Formatlar: JPG, PNG, PDF, Word, PPT</p>
+                            </div>
+                            <app-file-upload [isHidden]="false" [fileUploadTemizle]="fileUploadClear" [butonGorunum]="false" [isMultiple]="true" [accept]="ch.globals.fileUploadAcceptAllExtension" [maxFileSize]="ch.globals.fileUploadMaxDataSize"
+                                [id]="dosyaNameKapak">
+                            </app-file-upload>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="field text-start">
+                        <label for="name" class="bold">Yayınlanacak Dosya</label> <span> (Sadece PDF)</span>
+                        <div class="p-relative">
+                            <div class="publication-add">
+                                <p class="white-and-font"> Formatlar: JPG, PNG, PDF, Word, PPT</p>
+                            </div>
+                            <app-file-upload [isHidden]="false" [fileUploadTemizle]="fileUploadClear" [butonGorunum]="false" [isMultiple]="true" [accept]="ch.globals.fileUploadAcceptAllExtension" [maxFileSize]="ch.globals.fileUploadMaxDataSize"
+                                [id]="dosyaNameIcerik">
+                            </app-file-upload>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-lg-end" style="justify-content: center;">
+                <button pButton pRipple *ngIf="!isItNew" (click)="returnYayinListesi()" label="Vazgeç" class="p-mr-2 p-mb-2 red-button mr-5"></button>
+                <button [disabled]="publicationForm.invalid" pButton pRipple type="submit" (click)="savePublication()" [label]="buttonTitle" class="p-mr-2 p-mb-2 black-button"></button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>

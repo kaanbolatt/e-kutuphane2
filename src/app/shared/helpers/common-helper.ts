@@ -178,6 +178,7 @@ export class CommonHelper {
   }
 
   getUrlParams(route: ActivatedRoute = null) {
+    console.log("🚀 ~ file: common-helper.ts:181 ~ CommonHelper ~ getUrlParams ~ route:", route)
     if (Object.keys(this.route.snapshot.params).length > 0) {
       return this.convertUrlParamsToObject(this.decrypt(this.route.snapshot.params['q']));
     }
@@ -551,16 +552,34 @@ export class CommonHelper {
 
   //#region File
 
-  createFormDataWithFiles(fileParameterNames: string, additionalObject: any) {
+  createFormDataWithFiles(fileParameterNames: string[], additionalObject: any) {
     const formData = new FormData();
-    const fileObjectName = 'uploadedFiles';
+    const fileObjectName = 'Files';
+
+    fileParameterNames.forEach((fileParameter, i) => {
+      const files = this.globals.fileUploadFormData.getAll(fileParameter);
+      console.log("files", files);
+      files.forEach(file => {
+        formData.append(fileObjectName, file);
+      });
+    });
+
     const additionalObjectName = 'value';
-    const files = this.globals.fileUploadFormData.getAll(fileParameterNames);
-
-    for (const file of files) {
-      formData.append(`${fileObjectName}`, file);
+    if (!this.isNullOrUndefined(additionalObject) && !this.isNullOrWhiteSpace(additionalObjectName)) {
+      formData.append(additionalObjectName, JSON.stringify(additionalObject));
     }
+    return formData;
+  }
 
+  createFormDataWithBlobs(fileBlobs: CustomBlob[], additionalObject: any) {
+    const formData = new FormData();
+    const fileObjectName = 'UploadedFiles';
+
+    fileBlobs.forEach(item => {
+      formData.append(fileObjectName, item.blob, item.fileName.toString()); //  file name paraemtresi ile gönderilir.
+    });
+
+    const additionalObjectName = 'value';
     if (!this.isNullOrUndefined(additionalObject) && !this.isNullOrWhiteSpace(additionalObjectName)) {
       formData.append(additionalObjectName, JSON.stringify(additionalObject));
     }
@@ -810,7 +829,7 @@ export class CommonHelper {
   //#endregion Yardımcı Metodlar
 
   //#region Local Storage Back Button
- 
+
   /**
    * @tanim Geri Dön Butonuna Basınca Çalıştırılır.
    */
@@ -868,4 +887,14 @@ export class CommonHelper {
     control.setValue(pastedText);
     event.preventDefault();
   }
+}
+
+export class CustomBlob {
+  constructor(blob: Blob, fileName: string) {
+    this.blob = blob;
+    this.fileName = fileName;
+  }
+
+  blob: Blob;
+  fileName: string;
 }

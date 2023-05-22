@@ -49,7 +49,6 @@ this.fileName="Yüklenen Dosya :"+str
   }
   ngOnChanges(_changes: SimpleChanges): void {
     if (this.fileUploadTemizle) {
-      console.log(this.fileUpload)
       this.fileUpload._files=[]
       this.fileUpload.clear();
       this.globals.fileUploadFormData.delete(this.id);
@@ -60,8 +59,6 @@ this.fileName="Yüklenen Dosya :"+str
 
   ngOnInit() {
     this.activeImageUrl = this.sanitizer.bypassSecurityTrustUrl('');
-    console.log(this.fileUpload)
-
   }
 
   // Elementlerin görünmemesi ve ekran alanından kazanılması için yapıldı

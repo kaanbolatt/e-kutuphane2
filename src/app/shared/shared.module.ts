@@ -101,6 +101,7 @@ import { AppDropdownComponent } from './components/app-dropdown/app-dropdown.com
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import {SidebarModule} from 'primeng/sidebar';
 import { AppFooterComponent } from '../app.footer.component';
+import { LanguagePipe } from './pipes/language.pipe';
 
 registerLocaleData(localeTr, 'tr');
 const maskConfig: Partial<IConfig> = {
@@ -212,7 +213,8 @@ const maskConfig: Partial<IConfig> = {
     HeaderComponent,
     ProcessCardComponent,
     AppDropdownComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    LanguagePipe
   ],
   exports: [
     
@@ -318,6 +320,7 @@ const maskConfig: Partial<IConfig> = {
     DateTimeFormatPipe,
     DateHourFormatPipe,
     DateFormatPipe,
+    LanguagePipe
   ],
   entryComponents: [PromptComponent],
   providers: [

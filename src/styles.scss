@@ -2043,3 +2043,21 @@ body {
   display:flex;
   justify-content: center;
 }
+.publication-text {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.publication-list {
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.alert-required {
+  color: #dc3545;
+}
