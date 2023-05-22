@@ -43,7 +43,7 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
                         <li><a class="dropdown-item" href="#">Kitaplar</a></li>
                         <li><a class="dropdown-item" href="#"> Dergiler</a></li>
                         <li><a class="dropdown-item" href="#">Makeleler</a></li>
-                        <li><a class="dropdown-item" href="#">Sıkça Sorulan Sorular</a></li>
+                        <li><a class="dropdown-item" href="#">İletişim</a></li>
                     </ul>
 
                     <!-- <ul class="profile-mobile-wrapper">
