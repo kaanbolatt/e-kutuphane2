@@ -136,7 +136,8 @@ import { RoleTypeEnum } from './shared/enums/role-type.enum';
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active text-center">
-selam    </div>
+    selam    
+    </div>
     <div class="carousel-item text-center">
     baran  
     </div>
@@ -175,7 +176,6 @@ export class AppTopBarComponent implements OnInit {
     constructor(public appMain: AppMainComponent) { }
     ngOnInit(): void {
         // this.name = JSON.parse(localStorage.getItem('user_info')).fullName
-        // console.log('JSON.parse(localStorage.getItem(user_info)): ', JSON.parse(localStorage.getItem('user_info')));
         // this.institutionName = JSON.parse(localStorage.getItem('user_info'))?.jwtDto?.institutionName
         // // this.takeRole()
     }

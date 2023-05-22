@@ -31,4 +31,7 @@ export class PanelLayoutComponent implements OnInit {
   gotoYayinListesi() {
     this.router.navigate(['/panel/yayin-listesi']);
   }
+  gotoAnasayfa() {
+    this.router.navigate(['S']);
+  }
 }

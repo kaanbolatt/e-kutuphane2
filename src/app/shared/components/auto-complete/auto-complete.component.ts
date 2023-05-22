@@ -60,7 +60,6 @@ export class AutoCompleteComponent extends BaseComponent implements OnInit {
   search(event) {
     // bazen component tarafında sedece gösterim için kullanılmıştır.
     if (!this.readonly) {
-      console.log("sdfsdf");
       this.searchParams['search'] = event.query;
       this.searchParams[this.customParamsName] = this.customParamsValue;
       this.httpHelper.get(this.controllerName, this.methodName, this.gh.createParams(this.searchParams))

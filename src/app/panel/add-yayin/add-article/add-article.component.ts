@@ -7,12 +7,15 @@ import { FirstItemTextType } from 'src/app/shared/enums/first-item-text-type.enu
 import { LanguageEnum, languageEnumDescriptions } from 'src/app/shared/enums/language-type.enum';
 import { PublicationTypeEnum } from 'src/app/shared/enums/publication-type.enum';
 import { CustomBlob } from 'src/app/shared/helpers/common-helper';
+import { LanguagePipe } from 'src/app/shared/pipes/language.pipe';
 import { KutuphaneService } from 'src/app/sozlesme/services/kutuphane.service';
 
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
-  styleUrls: ['./add-article.component.scss']
+  styleUrls: ['./add-article.component.scss'],
+  providers: [LanguagePipe]
+
 })
 export class AddArticleComponent extends BaseComponent implements OnInit {
 
@@ -34,6 +37,7 @@ export class AddArticleComponent extends BaseComponent implements OnInit {
     private kutuphaneService: KutuphaneService,
     public router: Router,
     private route: ActivatedRoute,
+    private readonly languagePipe: LanguagePipe
   ) {
     super()
   }
@@ -45,7 +49,7 @@ export class AddArticleComponent extends BaseComponent implements OnInit {
     if (Number(this.route.queryParams['_value'].publicationId)) {
       this.kutuphaneService.getPublicationById(Number(this.route.queryParams['_value'].publicationId)).subscribe((res) => {
         this.ch.mapToFormGroup(res.data, this.publicationForm);
-        this.headerTitle = res.data.baslik + " (" + res.data.language + ")";
+        this.headerTitle = res.data.baslik + " (" + this.languagePipe.transform(res.data.language) + ")";
         this.isItNew = false;
         this.buttonTitle = "Yayını Güncelle"
       })

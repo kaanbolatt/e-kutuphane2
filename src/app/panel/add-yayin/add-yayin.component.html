@@ -5,23 +5,23 @@
             <div class="col-sm-2 col-md-3 col-lg-4"></div>
             <div class="col-sm-8 col-md-6 col-lg-4 yayin">
                 <div class="row gy-2 gx-2 ">
-                    <div (click)="selected=0" class="col-lg-4 ">
+                    <div (click)="selected=2" class="col-lg-4 ">
                         <div [ngClass]="{'active':selected==0}" class="categories">
-                            <i style="font-size:20px; margin-right: 7px;" class="pi pi-microsoft "></i>
+                            <img src="assets/img/Books.png" alt="">
                             <span>Kitap Ekle</span>
                         </div>
                     </div>
-                    <div (click)="selected=1" class=" col-lg-4 ">
+                    <div (click)="selected=3" class=" col-lg-4 ">
 
                         <div [ngClass]="{'active':selected==1}" class="categories ">
-                            <img src="assets/img/Books.png" alt="">
+                            <img src="assets/img/BookOpenText.png" alt="">
                             <span>Dergi Ekle</span>
                         </div>
                     </div>
-                    <div (click)="selected=2" class=" col-lg-4 ">
+                    <div (click)="selected=4" class=" col-lg-4 ">
 
                         <div [ngClass]="{'active':selected==2}" class="categories ">
-                            <img src="assets/img/BookOpenText.png" alt="">
+                            <img src="assets/img/Vector.svg" alt="">
                             <span>Makale Ekle</span>
                         </div>
                     </div>
@@ -36,6 +36,6 @@
     </div>
 </div>
 
-<app-add-book *ngIf="selected==0"></app-add-book>
-<app-add-magazine *ngIf="selected==1"></app-add-magazine>
-<app-add-article *ngIf="selected==2"></app-add-article>
+<app-add-book *ngIf="selected==2"></app-add-book>
+<app-add-magazine *ngIf="selected==3"></app-add-magazine>
+<app-add-article *ngIf="selected==4"></app-add-article>

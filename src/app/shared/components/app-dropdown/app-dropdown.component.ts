@@ -120,10 +120,8 @@ export class AppDropdownComponent extends BaseComponent implements ControlValueA
    
       if ( value['value'].value!=undefined) {
         this._parentForm.controls[this.id].value = value['value'].value;
-       console.log(this._parentForm.value) ;
       }else{
         this._parentForm.controls[this.id].value = value['value'];
-        console.log(this._parentForm.value) ;
       }
     
  

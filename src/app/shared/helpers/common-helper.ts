@@ -178,7 +178,6 @@ export class CommonHelper {
   }
 
   getUrlParams(route: ActivatedRoute = null) {
-    console.log("🚀 ~ file: common-helper.ts:181 ~ CommonHelper ~ getUrlParams ~ route:", route)
     if (Object.keys(this.route.snapshot.params).length > 0) {
       return this.convertUrlParamsToObject(this.decrypt(this.route.snapshot.params['q']));
     }
@@ -558,7 +557,6 @@ export class CommonHelper {
 
     fileParameterNames.forEach((fileParameter, i) => {
       const files = this.globals.fileUploadFormData.getAll(fileParameter);
-      console.log("files", files);
       files.forEach(file => {
         formData.append(fileObjectName, file);
       });

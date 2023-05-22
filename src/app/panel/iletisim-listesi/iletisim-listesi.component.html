@@ -51,21 +51,21 @@
                 <ng-template let-rowData="rowData" cellTemplate="mobilePhone">
                     <div style="text-align:center">
                         <div style="text-align:center">
-                            {{rowData.mobilePhone}}
+                            {{rowData?.mobilePhone}}
                         </div>
                     </div>
                 </ng-template>
                 <ng-template let-rowData="rowData" cellTemplate="aciklama">
                     <div style="text-align:center">
                         <div style="text-align:center">
-                            {{rowData.aciklama | truncatePipe}}
+                            {{rowData?.aciklama | truncatePipe}}
                         </div>
                     </div>
                 </ng-template>
                 <ng-template let-rowData="rowData" cellTemplate="iletisimDurumu">
                     <div style="text-align:center" [ngClass]="getColoring(rowData)">
                         <div style="text-align:center">
-                            {{rowData.iletisimDurumu|iletisimDurumuPipe}}
+                            {{rowData?.iletisimDurumu|iletisimDurumuPipe}}
                         </div>
                     </div>
                 </ng-template>

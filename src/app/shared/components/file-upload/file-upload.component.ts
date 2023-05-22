@@ -76,7 +76,6 @@ this.fileName="Yüklenen Dosya :"+str
   onSelect(event) {
   
     this.uploadedfiles=event.currentFiles;
-    console.log(this.uploadedfiles)
     for (const file of event.files) {
       this.ch.globals.fileUploadFormData.append(this.id, file);
       this.selectCallback.emit({ id: this.id, file });
@@ -107,7 +106,6 @@ clear(){
       return object.size === silinecekDosya.size;
     });
    this.fileUpload._files.splice(index,1);
-     console.log(this.fileUpload)
 
 
    

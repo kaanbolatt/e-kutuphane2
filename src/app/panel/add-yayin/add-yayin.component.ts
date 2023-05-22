@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-yayin',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-yayin.component.scss']
 })
 export class AddYayinComponent implements OnInit {
-selected=0
-  constructor() { }
+  selected = 1
+  constructor(
+    public router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if (Number(this.route.queryParams['_value'].yayinTuru)) {
+        this.selected = Number(this.route.queryParams['_value'].yayinTuru)
+    }
   }
 
 }

@@ -84,7 +84,6 @@ export class GridComponent extends BaseComponent implements OnInit, AfterContent
   if(this.doubleClick==true){
     this.dbClickToTr.emit(event);
   }else{
-    console.log("doubleClick kapalı")
   }
 
  }

@@ -52,7 +52,6 @@ export class IletisimListesiComponent extends BaseComponent implements OnInit {
   }
 
   communicationGridRefresh() {
-    console.log("object");
     this.gh.beforeGridRefresh();
 
     this.gh.beforeGridRefresh();
@@ -85,11 +84,9 @@ export class IletisimListesiComponent extends BaseComponent implements OnInit {
 
   getColoring(rowData) {
     if (rowData['iletisimDurumu'] == IletisimDurumuEnum.yeni) {
-      console.log("object11");
       return gridColorDescriptions.Yellow;
     }
     else {
-      console.log("object12");
       return gridColorDescriptions.Green;
     }
   }

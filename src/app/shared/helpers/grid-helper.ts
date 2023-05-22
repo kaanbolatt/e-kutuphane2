@@ -227,21 +227,6 @@ export class GridHelper {
     return dtInfo.searchFilter;
   }
   clearFilters(datatableIndex: number = 0, ignoredProperties: string[] = []) {
-    // if (ignoredProperties.length > 0) {
-    //   // const filterForm = this.getFilterForm(datatableIndex);
-
-    //   // this.getFilterForm(datatableIndex).reset();
-    //   // this.setFilterForm(this.formBuilder.group({
-    //   //   ay: [3],
-    //   // }));
-    //   console.log(this.getFilterForm(datatableIndex));
-    //   for (const cont of Object.keys(this.getFilterForm(datatableIndex).controls)) {
-    //     if (!ignoredProperties.includes(cont)) {
-    //       const sonuc = this.getFilterForm(datatableIndex).removeControl[cont];
-    //     }
-    //   }
-    //   console.log(this.getFilterForm(datatableIndex));
-    // } else {
     const dd = this.getFilterForm(datatableIndex);
     if (dd !== undefined && dd !== null) {
       // Formun property i disabled değilse resetliyor

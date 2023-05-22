@@ -92,16 +92,20 @@ import { DateHourFormatPipe } from './pipes/date-hour-format.pipe';
 import { Constants } from './constants/constants';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SmsDialogComponent } from './components/sms-dialog/sms-dialog.component';
-import {TabMenuModule} from 'primeng/tabmenu';
-import {TabViewModule} from 'primeng/tabview';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
 import { HeaderComponent } from './components/header/header.component';
 import { ProcessCardComponent } from './components/process-card/process-card.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { AppDropdownComponent } from './components/app-dropdown/app-dropdown.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
-import {SidebarModule} from 'primeng/sidebar';
+import { SidebarModule } from 'primeng/sidebar';
 import { AppFooterComponent } from '../app.footer.component';
 import { LanguagePipe } from './pipes/language.pipe';
+import { PublicationTypePipe } from './pipes/publication-type.pipe';
+import { PaginatorModule } from 'primeng/paginator';
+import { IletisimDurumuPipe } from './pipes/iletisim-durumu.pipe';
+import { TruncatePipe } from './pipes/character-limit.pipe';
 
 registerLocaleData(localeTr, 'tr');
 const maskConfig: Partial<IConfig> = {
@@ -166,7 +170,8 @@ const maskConfig: Partial<IConfig> = {
     TabViewModule,
     NgxDropzoneModule,
     NgxMaskModule.forRoot(maskConfig),
-    SidebarModule
+    SidebarModule,
+    PaginatorModule
   ],
   declarations: [
     BaseComponent,
@@ -214,10 +219,13 @@ const maskConfig: Partial<IConfig> = {
     ProcessCardComponent,
     AppDropdownComponent,
     AppFooterComponent,
-    LanguagePipe
+    LanguagePipe,
+    PublicationTypePipe,
+    IletisimDurumuPipe,
+    TruncatePipe
   ],
   exports: [
-    
+
     AppFooterComponent,
     FormsModule,
     SmsDialogComponent,
@@ -275,7 +283,7 @@ const maskConfig: Partial<IConfig> = {
     TabViewModule,
     NgxDropzoneModule,
     SidebarModule,
-    
+
     BaseComponent,
     GridComponent,
     UlkeComponent,
@@ -320,7 +328,11 @@ const maskConfig: Partial<IConfig> = {
     DateTimeFormatPipe,
     DateHourFormatPipe,
     DateFormatPipe,
-    LanguagePipe
+    LanguagePipe,
+    PublicationTypePipe,
+    PaginatorModule,
+    IletisimDurumuPipe, 
+    TruncatePipe
   ],
   entryComponents: [PromptComponent],
   providers: [
@@ -334,7 +346,7 @@ const maskConfig: Partial<IConfig> = {
     DialogService,
     ConfirmationService,
     DatePipe,
-    JwtHelperService 
+    JwtHelperService
   ]
 })
 export class ShareddModule { }

@@ -146,7 +146,8 @@
             </div>
 
             <div class="d-flex justify-content-lg-end" style="justify-content: center;">
-                <button pButton pRipple *ngIf="!isItNew" (click)="returnYayinListesi()" label="Vazgeç" class="p-mr-2 p-mb-2 red-button mr-5"></button>
+                <button pButton pRipple *ngIf="!isItNew" (click)="returnYayinListesi()" label="Vazgeç" class="p-mr-2 p-mb-2 black-button"></button>
+
                 <button [disabled]="publicationForm.invalid" pButton pRipple type="submit" (click)="savePublication()" [label]="buttonTitle" class="p-mr-2 p-mb-2 black-button"></button>
             </div>
         </div>

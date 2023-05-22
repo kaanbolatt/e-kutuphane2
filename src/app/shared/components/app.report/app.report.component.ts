@@ -43,7 +43,6 @@ export class ReportComponent extends BaseComponent implements OnInit {
 
   downloadExcel() {
     let content = this.reportContent.nativeElement;
-    console.log(content.innerHTML);
     let style = '';
     if (this.border === true) {
       style = '<style>table,td,th {border: 1px solid black;border-collapse: collapse;}</style>';

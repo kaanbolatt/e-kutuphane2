@@ -81,7 +81,6 @@ element2.classList.add('nav-coming')
 
      }
      this.lastKnownScrollPosition = window.scrollY;
-    console.log( this.lastKnownScrollPosition)
     });
   }
 
@@ -89,7 +88,6 @@ element2.classList.add('nav-coming')
   scrollRight() {
 
     var leftPos = $('div.outer_container').scrollLeft();
-    console.log(leftPos);
     $("div.outer_container").animate({
       scrollLeft: leftPos + 224
     }, 800);
@@ -97,7 +95,6 @@ element2.classList.add('nav-coming')
   }
   scrollLeft() {
     var leftPos = $('div.outer_container').scrollLeft();
-    console.log(leftPos);
     $("div.outer_container").animate({
       scrollLeft: leftPos - 224
     }, 800);
@@ -105,7 +102,6 @@ element2.classList.add('nav-coming')
   scrollRight2() {
 
     var leftPos = $('div.outer_container2').scrollLeft();
-    console.log(leftPos);
     $("div.outer_container2").animate({
       scrollLeft: leftPos + 224
     }, 800);
@@ -113,7 +109,6 @@ element2.classList.add('nav-coming')
   }
   scrollLeft2() {
     var leftPos = $('div.outer_container2').scrollLeft();
-    console.log(leftPos);
     $("div.outer_container2").animate({
       scrollLeft: leftPos - 224
     }, 800);

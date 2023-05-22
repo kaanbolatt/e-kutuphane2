@@ -35,7 +35,6 @@ export class BookDetailComponent implements OnInit {
   
        }
        this.lastKnownScrollPosition = window.scrollY;
-      console.log( this.lastKnownScrollPosition)
       });
     }
   
