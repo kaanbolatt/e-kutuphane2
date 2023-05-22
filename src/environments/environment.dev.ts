@@ -6,8 +6,9 @@ export const environment = {
   production: false,
   test: false,
   dev: true,
-  apiUrl: 'https://helptum-api.azurewebsites.net/api/v1/helptum/',
-  uiUrl: 'https://helptum.azurewebsites.net/',
+  apiUrl: 'https://kutuphaneYonetimi-api.azurewebsites.net/api/v1/kutuphaneYonetimi/',
+  socketUrl: 'https://kutuphaneYonetimi-api.azurewebsites.net/',
+  uiUrl: 'https://kutuphaneYonetimi.azurewebsites.net/',
   recaptcha: {
     siteKey: '6Lfqg0ckAAAAAGie6mJw07UP5npA77TW9IsRdeLe',
   },

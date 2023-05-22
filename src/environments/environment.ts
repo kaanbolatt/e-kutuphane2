@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   test: false,
   dev: true,
-  apiUrl: 'http://localhost:5020/api/v1/helptum/',
+  apiUrl: 'https://localhost:49550/api/v1/KutuphaneYonetimi/',
   uiUrl: 'http://localhost:4200',
   recaptcha: {
     siteKey: '6Lc3x_wfAAAAAEnDFCfkZ41XWtora0pxrLR0MdMx',

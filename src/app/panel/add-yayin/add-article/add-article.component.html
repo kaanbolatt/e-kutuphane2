@@ -1,137 +1,182 @@
+<div class="container main-content">
+    <form [formGroup]="publicationForm">
 
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Başlık</label>
+                        <div class="p-inputgroup">
+                            <input pInputText type="text" formControlName="baslik" class="p-inputtext p-component p-element" placeholder="Yazınız" />
+                        </div>
+                        <div *ngIf="baslik.invalid && (baslik.dirty || baslik.touched)" class="alert-required">
+                            <div *ngIf="baslik.errors?.['required']">
+                                Başlık zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Eseri Yayınlayan Kişi</label>
+                        <div class="p-inputgroup">
+                            <app-auto-complete class="w-100" [multiple]="true" [placeholder]="'Yazar ismi giriniz...'" [parentForm]="publicationForm" [id]="'authorTagChips'" [controllerName]="'KutuphaneYonetimi'" [methodName]="'AuthorTagListGet'">
+                            </app-auto-complete>
+                        </div>
+                        <div *ngIf="authorTagChips.invalid && (authorTagChips.dirty || authorTagChips.touched)" class="alert-required">
+                            <div *ngIf="authorTagChips.errors?.['required']">
+                                Eseri yayınlayan kişi zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="field contact">
+                    <label class="mb-3" style="font-weight: 600;" for="identityNo">Dil</label>
+                    <p-dropdown [options]="languageType" formControlName="language" class="full-width" placeholder="Lütfen Seçiniz"></p-dropdown>
+                </div>
+                <div *ngIf="language.invalid && (language.dirty || language.touched)" class="alert-required">
+                    <div *ngIf="language.errors?.['required']">
+                        Dil zorunludur!
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Yayın İçeriğine Dair Tag</label>
+                        <div class="p-inputgroup">
+                            <app-auto-complete class="w-100" [showNewAdd]="true" [multiple]="true" [placeholder]="'Anahtar kelime giriniz...'" [parentForm]="publicationForm" [id]="'keyWordTagChips'" [controllerName]="'KutuphaneYonetimi'"
+                                [methodName]="'KeyWordTagListGet'">
+                            </app-auto-complete>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Basım Tarihi</label>
+                        <div class="p-inputgroup">
+                            <p-calendar dateFormat="M/d/yy" formControlName="basimTarihi"></p-calendar>
+                        </div>
+                        <div *ngIf="basimTarihi.invalid && (basimTarihi.dirty || basimTarihi.touched)" class="alert-required">
+                            <div *ngIf="basimTarihi.errors?.['required']">
+                                Basım tarihi zorunludur!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Makale Türü</label>
+                        <div class="p-inputgroup">
+                            <p-dropdown [options]="articleTypeList" formControlName="definitonId" class="full-width" placeholder="Lütfen Seçiniz"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Eserin Yayınlandığı Ana Kaynak</label>
+                        <div class="p-inputgroup">
+                            <input type="text" formControlName="eserKaynak" pInputText class="p-inputtext p-component p-element" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Sayfa Sayısı</label>
+                        <div class="p-inputgroup">
+                            <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Sayfa Sayısı" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Cilt</label>
+                        <div class="p-inputgroup">
+                            <input pInputText type="text" formControlName="cilt" class="p-inputtext p-component p-element" placeholder="Cilt" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Sayı</label>
+                        <div class="p-inputgroup">
+                            <input pInputText type="text" formControlName="sayi" class="p-inputtext p-component p-element" placeholder="Sayı" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="min-height:250px ;">
+                <div class="field contact">
+                    <div class="position-relative ">
+                        <label class="mb-3" style="font-weight: 600;">Özet Bilgisi</label>
+                        <div class="p-inputgroup">
+                            <textarea pInputText formControlName="aciklama" type="text" style="min-height:200px ;" class="p-inputtext p-component p-element" placeholder="Yazınız"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="container main-content" >
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Başlık</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="field text-start">
+                        <label for="name" class="bold">Kapak Resmi</label> <span> (Sadece PDF)</span>
+                        <div class="p-relative">
+                            <div class="publication-add">
+                                <p class="white-and-font"> Formatlar: JPG, PNG, PDF, Word, PPT</p>
+                            </div>
+                            <app-file-upload [isHidden]="false" [fileUploadTemizle]="fileUploadClear" [butonGorunum]="false" [isMultiple]="true" [accept]="ch.globals.fileUploadAcceptAllExtension" [maxFileSize]="ch.globals.fileUploadMaxDataSize"
+                                [id]="dosyaNameKapak">
+                            </app-file-upload>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Eseri Yayınlayan Kişi</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="field contact">
-              
-                  <label class="mb-3" style="font-weight: 600;"  for="identityNo">Dil</label>
-                  <app-dropdown [controllerName]="'Account'"   [methodName]="'RoleList'" [placeholder]="'Seçiniz'" >
-                  </app-dropdown>
-              
-              </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Yayın İçeriğine Dair Tag</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Tarih</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Yazınız" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Makale Türü</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Eserin Yayınlandığı Ana Kaynak</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Sayfa Sayısı</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Cilt</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Sayı</label>
-                    <div class="p-inputgroup">
-                        <input pInputText type="text" class="p-inputtext p-component p-element" placeholder="Parola" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="" style="min-height:250px ;">
-            <div class="field contact">
-                <div class="position-relative ">
-                    <label  class="mb-3" style="font-weight: 600;" >Özet Bilgisi</label>
-                    <div class="p-inputgroup">
-                        <textarea pInputText type="text"  style="min-height:200px ;" class="p-inputtext p-component p-element" placeholder="Yazınız" ></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-6 ">
-            <div style="position: relative;">
-            
-                <app-file-upload [isHidden]="false"  [butonGorunum]="false" [isMultiple]="true" 
-                    >
-                </app-file-upload>
-            </div>
-        </div>
-        <div class="col-lg-6 ">
-            <div style="position: relative;">
-              
-                <app-file-upload [isHidden]="false"  [butonGorunum]="false" [isMultiple]="true" 
-                    >
-                </app-file-upload>
-            </div>
-        </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="field text-start">
+                        <label for="name" class="bold">Yayınlanacak Dosya</label> <span> (Sadece PDF)</span>
+                        <div class="p-relative">
+                            <div class="publication-add">
+                                <p class="white-and-font"> Formatlar: JPG, PNG, PDF, Word, PPT</p>
+                            </div>
+                            <app-file-upload [isHidden]="false" [fileUploadTemizle]="fileUploadClear" [butonGorunum]="false" [isMultiple]="true" [accept]="ch.globals.fileUploadAcceptAllExtension" [maxFileSize]="ch.globals.fileUploadMaxDataSize"
+                                [id]="dosyaNameIcerik">
+                            </app-file-upload>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="d-flex justify-content-lg-end" style="justify-content: center;">
-            <button  type="submit"  
-            class="p-element p-ripple  p-button p-component mt-4" style="width: 330px;" disabled>Gönder</button>
+            </div>
+            <div class="d-flex justify-content-lg-end" style="justify-content: center;">
+                <button pButton pRipple type="submit" (click)="visibleArticleAddForm()" label="+ Makale Türü Ekle" class="p-mr-2 p-mb-2 black-button"></button>
+                <button pButton pRipple *ngIf="!isItNew" (click)="returnYayinListesi()" label="Vazgeç" class="p-mr-2 p-mb-2 red-button mr-5"></button>
+                <button [disabled]="publicationForm.invalid" pButton pRipple type="submit" (click)="savePublication()" [label]="buttonTitle" class="p-mr-2 p-mb-2 black-button"></button>
+            </div>
         </div>
-    </div>
+    </form>
+    <form [formGroup]="articleForm" *ngIf="articleAddFormVisible">
+        <div class="col-lg-3">
+            <label for="name" class="bold">Makale Türü</label>
+            <div class="p-inputgroup ">
+                <input formControlName="articleType" pInputText class="p-inputtext p-component p-element" />
+            </div>
+        </div>
+        <button pButton pRipple type="submit" (click)="saveArticle()" label="Ekle" class="p-mr-2 p-mb-2 black-button"></button>
+      </form>
+
 </div>
