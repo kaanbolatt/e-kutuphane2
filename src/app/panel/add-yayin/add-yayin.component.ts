@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-yayin.component.scss']
 })
 export class AddYayinComponent implements OnInit {
-  selected = 1
+  selected = 2
   constructor(
     public router: Router,
     private route: ActivatedRoute) { }
